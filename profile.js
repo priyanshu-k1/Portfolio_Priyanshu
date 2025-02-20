@@ -16,6 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+// on click eye icon function to open certificate
+document.querySelector(".eye-icon").addEventListener("click", function() {
+    window.open("path-to-your-certificate.png", "_blank");
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     const sroller= document.getElementById("NAVBAR").offsetHeight; 
