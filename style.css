@@ -103,7 +103,7 @@ p{
 }
 #h3Text{
     color: #3a434c;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 .bottomSegment{
     height:70%;
@@ -839,32 +839,54 @@ h2 {
         justify-content: center;
         flex-direction: row;
         height: 30rem;
-        overflow-x: scroll;
+        overflow-y: scroll;
+        scrollbar-width: thin;
     }
+ 
     .cardBody{
         margin-top: 3rem;
-        width: 90%;
+        width: 100%;
         height: 100%;
 
     }
-     footer{
+    .covercaption{
+        margin-top:15rem;
+        width: 90%;
+        text-align: center;
+        height:3rem;
+    }
+    .projectOverlay h3{
+        font-size: 4rem;
+    }
+    .projectOverlay p{
+        font-size: 1.3rem;
+    }
+    .projectOverlay span{
+        font-size: 1.1rem;
+    }
+    .projectOverlay a{
+        text-align: center;
+        width: 70%;
+        height:8%;
+    }
+    .minorProject{
+        height:39rem;
+        flex-wrap: wrap;
+        gap:1 rem;
+     
+    }
+    .projectButton{
+       width:50rem;
+    }
+
+
+    footer{
     
         display: flex;
         align-items: center;
         justify-content: center;
     }
+    /* .footerquote{
+        background-color: pink;
+    } */
 }
-/* @media (max-width: 768px) {
-    .skill-breakdown p {
-        font-size: 10px;
-    }
-
-    .progress-bar {
-        height: 8px;
-    }
-
-    .skill-level {
-        font-size: 14px;
-    }
-} */
-/* Fix RWD ASAP */
