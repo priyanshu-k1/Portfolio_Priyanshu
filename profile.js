@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const eye1 = document.querySelector(".eye1");
     const eye2 = document.querySelector(".eye2");
     const eye3 = document.querySelector(".eye3");
-    devPic.style.marginTop = "50rem";
+    // devPic.style.marginTop = "50rem";
 
     if (devPic && devPic2) { // Check if elements exist before adding event listeners
         devPic2.addEventListener("mouseenter", function () { // Trigger on hover

@@ -103,6 +103,7 @@ p{
 }
 #h3Text{
     color: #3a434c;
+    margin-top: 1rem;
 }
 .bottomSegment{
     height:70%;
@@ -728,9 +729,6 @@ h2 {
         height: 35%;
         aspect-ratio: 1/1;
         border-radius:100%;
-    }
-    .devPic{
-        margin-top: 40rem;
     }
   
 
