@@ -695,6 +695,7 @@ h2 {
     transition: all 0.6s ease-in;
 }
 
+
 .footerIcon{
     margin-right:0.5rem;
     transition: all 0.3s ease-in;
@@ -766,3 +767,4 @@ h2 {
         font-size: 14px;
     }
 }
+/* Fix RWD ASAP */
