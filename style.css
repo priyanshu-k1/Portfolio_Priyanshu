@@ -169,7 +169,6 @@ p{
     object-fit:fill;
     z-index: 1;
     transition: margin-top 0.9s ease-in-out;
-    
 }
 .devPic2{
     margin-top: 1.1rem;
@@ -729,6 +728,9 @@ h2 {
         height: 35%;
         aspect-ratio: 1/1;
         border-radius:100%;
+    }
+    .devPic{
+        margin-top: 40rem;
     }
   
 
