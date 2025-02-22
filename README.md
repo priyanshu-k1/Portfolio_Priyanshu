@@ -36,7 +36,7 @@ A brief introduction and a **Download Resume** button.
 
 ### 🔹 Contact
 
-- LinkedIn: [Your LinkedIn Profile](#) *(https://www.linkedin.com/in/priyanshu-kumar-97898424a/)*
+- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/priyanshu-kumar-97898424a/)
 - GitHub: [GitHub Profile](https://github.com/priyanshu-k1)
 - Email: [priyanshukumar0419@gmail.com](mailto\:priyanshukumar0419@gmail.com)
 
