@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const eye1 = document.querySelector(".eye1");
     const eye2 = document.querySelector(".eye2");
     const eye3 = document.querySelector(".eye3");
+    devPic.style.marginTop = "50rem";
 
     if (devPic && devPic2) { // Check if elements exist before adding event listeners
         devPic2.addEventListener("mouseenter", function () { // Trigger on hover
@@ -55,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         devPic2.addEventListener("mouseleave", function () { // Reset on mouse leave
             devPic2.style.opacity = "1";  // Show devPic2 again
-            devPic2.style.pointerEvents = "auto"; // Enable interactions again
+            // devPic2.style.pointerEvents = "auto"; // Enable interactions again
             devPic.style.marginTop = "50rem"; // Reset devPic position
         });
     }

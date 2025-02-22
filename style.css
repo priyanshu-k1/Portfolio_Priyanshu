@@ -741,6 +741,9 @@ h2 {
         justify-content: center;
       
     }
+    .bottomSegment{
+        margin-top: 1.2rem;
+    }
     .bottomSegment h2{
         margin-top:-1rem;
     }
@@ -838,6 +841,7 @@ h2 {
         justify-content: center;
         flex-direction: row;
         height: 30rem;
+        overflow-x: scroll;
     }
     .cardBody{
         margin-top: 3rem;
