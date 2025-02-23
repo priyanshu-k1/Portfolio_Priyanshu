@@ -760,7 +760,7 @@ h2 {
         flex-direction: column;
         align-items: center;
         /* flex-wrap: nowrap; */
-        overflow-y: scroll;
+        overflow-y: hidden;
         scrollbar-width: thin;
     }
     .flip-card {
@@ -831,6 +831,16 @@ h2 {
     }
     .skill-level{
         font-size: 2rem;
+    }
+    .conatiner::-webkit-scrollbar {
+        height: 5px; /* Thin scrollbar */
+    }
+    .conatiner::-webkit-scrollbar-thumb {
+        background: #c9a27c;
+        border-radius: 10px;
+    }
+    .conatiner::-webkit-scrollbar-track {
+        background: transparent;
     }
     .projectsScreen{
         height: 70rem;
@@ -918,9 +928,13 @@ h2 {
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column-reverse;
     }
-   
-    /* .footerquote{
-        background-color: pink;
-    } */
+    .footerquote{
+       display: none;
+    }
+    .footerIcon{
+        font-size: 2rem;
+        margin-left: 1rem;
+    }
 }

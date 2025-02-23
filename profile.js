@@ -4,7 +4,7 @@ function letsChat(){
 document.addEventListener("DOMContentLoaded", function() {
     const downloadButton = document.getElementById("downloadResume");
     const projectButtons = document.querySelectorAll(".projectButton"); // Select all buttons
-
+    const container = document.querySelector(".conatiner");
     if (downloadButton) {
         downloadButton.addEventListener("click", function() {
             let link = document.createElement("a");
@@ -16,6 +16,17 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     } else {
         console.error("Download button not found!");
+    }
+    if (container) { // Check if element exists before running the scroll function
+        function autoScroll() {
+            if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+                container.scrollLeft = 0; // Reset scroll when it reaches the end
+            } else {
+                container.scrollLeft += 1.3; // Adjust speed by changing this value
+            }
+        }
+
+        setInterval(autoScroll, 20); // Adjust interval for speed
     }
 
     // Loop through each button and add event listener
