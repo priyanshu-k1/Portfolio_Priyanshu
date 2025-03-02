@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const downloadButton = document.getElementById("downloadResume");
     const projectButtons = document.querySelectorAll(".projectButton"); // Select all buttons
     const container = document.querySelector(".conatiner");
+    let scrollInterval;
+    let isUserInteracting = false;
+    let resumeTimeout;
     if (downloadButton) {
         downloadButton.addEventListener("click", function() {
             let link = document.createElement("a");
@@ -17,16 +20,33 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         console.error("Download button not found!");
     }
-    if (container) { // Check if element exists before running the scroll function
-        function autoScroll() {
-            if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
-                container.scrollLeft = 0; // Reset scroll when it reaches the end
-            } else {
-                container.scrollLeft += 1.3; // Adjust speed by changing this value
-            }
+    function startAutoScroll() {
+        if (!isUserInteracting) {
+            scrollInterval = setInterval(() => {
+                if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+                    container.scrollLeft = 0; // Reset scroll when it reaches the end
+                } else {
+                    container.scrollLeft += 1; // Adjust speed by changing this value
+                }
+            }, 20);
         }
-
-        setInterval(autoScroll, 20); // Adjust interval for speed
+    }
+     function stopAutoScroll() {
+        clearInterval(scrollInterval);
+        isUserInteracting = true;
+        clearTimeout(resumeTimeout); // Prevent multiple timeouts
+        resumeTimeout = setTimeout(() => {
+            isUserInteracting = false;
+            startAutoScroll(); // Resume scrolling after delay
+        }, 3000); // Restart scrolling after 3 seconds of no interaction
+    }
+    if (container) { 
+        startAutoScroll();
+        container.addEventListener("mouseenter", stopAutoScroll);
+        container.addEventListener("mouseleave", startAutoScroll);
+        container.addEventListener("touchstart", stopAutoScroll);
+        container.addEventListener("touchend", startAutoScroll);
+        container.addEventListener("wheel", stopAutoScroll);    
     }
 
     // Loop through each button and add event listener
