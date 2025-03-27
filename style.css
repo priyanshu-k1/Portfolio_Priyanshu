@@ -716,6 +716,15 @@ h2 {
 
 
 @media (max-width: 768px) {
+    .glowing {
+        box-shadow:
+            0 0 3px #fff,
+            0 0 6px #bc13fe,
+            0 0 12px #bc13fe;
+        transform: scale(1.1); /* Slightly enlarge the active card */
+        transition: all 0.3s ease-in-out;
+    }
+
     .homeScreenDiv{
         margin-top: 3rem;
         /* background-color: olive; */

@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        interval = setInterval(autoScroll, 5);
+        interval = setInterval(autoScroll, 13);
 
         // **Pause scrolling on user interaction**
         container.addEventListener("mouseenter", () => {
