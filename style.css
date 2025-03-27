@@ -189,6 +189,7 @@ p{
 }
 
 .conatiner{
+    padding:10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -198,8 +199,7 @@ p{
     border-radius: 8px;
     gap: 1rem;
     flex-wrap:wrap;
-   
-    
+    overflow: hidden;   
 }
 .flip-card {
     background-color: transparent;
@@ -634,7 +634,15 @@ h2 {
    
    
 }
-    
+.conatiner {
+    overflow-x: scroll;  /* Enable scrolling */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+}
+
+.conatiner::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari */
+}
 
 .glowbutton{
     text-align: center;
@@ -906,6 +914,15 @@ h2 {
     }
     .minorProject::-webkit-scrollbar-track {
         background: transparent;
+    }
+    .conatiner {
+        overflow-x: scroll;  /* Enable scrolling */
+        scrollbar-width: none; /* Hide scrollbar for Firefox */
+        -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+    }
+    
+    .conatiner::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for Chrome, Safari */
     }
     
     /* Ensure buttons don’t expand too much */

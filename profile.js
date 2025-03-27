@@ -1,12 +1,71 @@
 function letsChat(){
     window.open("https://t.me/Priyanshuk_01",'_blank'); 
 }
-document.addEventListener("DOMContentLoaded", function() {
+// document.addEventListener("DOMContentLoaded", function() {
+//     const downloadButton = document.getElementById("downloadResume");
+//     const projectButtons = document.querySelectorAll(".projectButton"); // Select all buttons
+//     const container = document.querySelector(".conatiner");
+//     let scrollAmount = 1.3; // Adjust speed
+//     let direction = 1; // 1 for right, -1 for left
+//     if (downloadButton) {
+//         downloadButton.addEventListener("click", function() {
+//             let link = document.createElement("a");
+//             link.href = "/res/Priyanshu-Resume.pdf"; // Replace with actual resume path
+//             link.download = "Priyanshu_Kumar_Resume.pdf"; // Custom filename
+//             document.body.appendChild(link);
+//             link.click();
+//             document.body.removeChild(link);
+//         });
+//     } else {
+//         console.error("Download button not found!");
+//     }
+//     if (container) { // Check if element exists before running the scroll function
+//         function autoScroll() {
+//             // Reverse direction when reaching the start or end
+//         if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+//             direction = -1; // Scroll left
+//         } else if (container.scrollLeft <= 0) {
+//             direction = 1; // Scroll right
+//         }
+//         container.scrollLeft += scrollAmount * direction;
+//         }
+
+//         setInterval(autoScroll, 10); // Adjust interval for speed
+//     }
+
+//     // Loop through each button and add event listener
+//     projectButtons.forEach((button) => {
+//         button.addEventListener("click", function() {
+//             let projectName = button.innerHTML.trim(); // Get button text
+            
+//             let projectLinks = {
+//                 "PDC Library": "https://github.com/priyanshu-k1/PDC-Library-",
+//                 "BMI Calculator": "https://github.com/priyanshu-k1/bmi_calculator2",
+//                 "Breeze Website": "https://github.com/priyanshu-k1/Breeze-web_site",
+//                 "Tik Tak": "https://github.com/priyanshu-k1/tictac_using-Tkinter",
+//                 "Cook Book": "https://github.com/priyanshu-k1/Cook-Book-flutter"
+//             };
+
+//             if (projectLinks[projectName]) {
+//                 window.open(projectLinks[projectName], '_blank');
+//             } else {
+//                 alert("Project not found");
+//             }
+//         });
+//     });
+// });
+
+document.addEventListener("DOMContentLoaded", function () {
     const downloadButton = document.getElementById("downloadResume");
     const projectButtons = document.querySelectorAll(".projectButton"); // Select all buttons
     const container = document.querySelector(".conatiner");
+
+    let scrollAmount = 2; // Adjust speed
+    let scrolling = true; // Auto-scroll state
+    let interval;
+
     if (downloadButton) {
-        downloadButton.addEventListener("click", function() {
+        downloadButton.addEventListener("click", function () {
             let link = document.createElement("a");
             link.href = "/res/Priyanshu-Resume.pdf"; // Replace with actual resume path
             link.download = "Priyanshu_Kumar_Resume.pdf"; // Custom filename
@@ -17,23 +76,53 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         console.error("Download button not found!");
     }
-    if (container) { // Check if element exists before running the scroll function
+
+    if (container) {
+        // **Clone child elements for infinite loop effect**
+        const items = [...container.children]; // Get all items inside container
+        items.forEach((item) => {
+            let clone = item.cloneNode(true);
+            container.appendChild(clone); // Duplicate items for looping effect
+        });
+
         function autoScroll() {
-            if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
-                container.scrollLeft = 0; // Reset scroll when it reaches the end
-            } else {
-                container.scrollLeft += 1.3; // Adjust speed by changing this value
+            if (!scrolling) return; // Stop scrolling if user interacts
+
+            container.scrollLeft += scrollAmount;
+
+            // **If reached end, reset without noticeable jump**
+            if (container.scrollLeft >= container.scrollWidth / 2) {
+                container.scrollLeft = 0;
             }
         }
 
-        setInterval(autoScroll, 20); // Adjust interval for speed
+        interval = setInterval(autoScroll, 20);
+
+        // **Pause scrolling on user interaction**
+        container.addEventListener("mouseenter", () => {
+            scrolling = false;
+            clearInterval(interval);
+        });
+        container.addEventListener("mouseleave", () => {
+            scrolling = true;
+            interval = setInterval(autoScroll, 20);
+        });
+
+        container.addEventListener("touchstart", () => {
+            scrolling = false;
+            clearInterval(interval);
+        });
+        container.addEventListener("touchend", () => {
+            scrolling = true;
+            interval = setInterval(autoScroll, 20);
+        });
     }
 
     // Loop through each button and add event listener
     projectButtons.forEach((button) => {
-        button.addEventListener("click", function() {
+        button.addEventListener("click", function () {
             let projectName = button.innerHTML.trim(); // Get button text
-            
+
             let projectLinks = {
                 "PDC Library": "https://github.com/priyanshu-k1/PDC-Library-",
                 "BMI Calculator": "https://github.com/priyanshu-k1/bmi_calculator2",
@@ -43,13 +132,15 @@ document.addEventListener("DOMContentLoaded", function() {
             };
 
             if (projectLinks[projectName]) {
-                window.open(projectLinks[projectName], '_blank');
+                window.open(projectLinks[projectName], "_blank");
             } else {
                 alert("Project not found");
             }
         });
     });
 });
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const devPic = document.querySelector(".devPic");
