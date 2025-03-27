@@ -59,22 +59,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const downloadButton = document.getElementById("downloadResume");
     const projectButtons = document.querySelectorAll(".projectButton"); // Select all buttons
     const container = document.querySelector(".conatiner");
-<<<<<<< HEAD
 
     let scrollAmount = 2; // Adjust speed
     let scrolling = true; // Auto-scroll state
     let interval;
 
-=======
-    let scrollInterval;
-    let isUserInteracting = false;
-    let resumeTimeout;
->>>>>>> ceb1bf5a54e7d8129184ba8152e3a6d1ca066cca
     if (downloadButton) {
         downloadButton.addEventListener("click", function () {
             let link = document.createElement("a");
-            link.href = "res/Priyanshu-Resume.pdf"; 
-            link.download = "Priyanshu Kumar Resume.pdf"; // Custom filename
+            link.href = "/res/Priyanshu-Resume.pdf"; // Replace with actual resume path
+            link.download = "Priyanshu_Kumar_Resume.pdf"; // Custom filename
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -82,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         console.error("Download button not found!");
     }
-<<<<<<< HEAD
 
     if (container) {
         // **Clone child elements for infinite loop effect**
@@ -103,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        interval = setInterval(autoScroll, 20);
+        interval = setInterval(autoScroll, 5);
 
         // **Pause scrolling on user interaction**
         container.addEventListener("mouseenter", () => {
@@ -123,35 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
             scrolling = true;
             interval = setInterval(autoScroll, 20);
         });
-=======
-    function startAutoScroll() {
-        if (!isUserInteracting) {
-            scrollInterval = setInterval(() => {
-                if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
-                    container.scrollLeft = 0; // Reset scroll when it reaches the end
-                } else {
-                    container.scrollLeft += 1; // Adjust speed by changing this value
-                }
-            }, 20);
-        }
-    }
-     function stopAutoScroll() {
-        clearInterval(scrollInterval);
-        isUserInteracting = true;
-        clearTimeout(resumeTimeout); // Prevent multiple timeouts
-        resumeTimeout = setTimeout(() => {
-            isUserInteracting = false;
-            startAutoScroll(); // Resume scrolling after delay
-        }, 3000); // Restart scrolling after 3 seconds of no interaction
-    }
-    if (container) { 
-        startAutoScroll();
-        container.addEventListener("mouseenter", stopAutoScroll);
-        container.addEventListener("mouseleave", startAutoScroll);
-        container.addEventListener("touchstart", stopAutoScroll);
-        container.addEventListener("touchend", startAutoScroll);
-        container.addEventListener("wheel", stopAutoScroll);    
->>>>>>> ceb1bf5a54e7d8129184ba8152e3a6d1ca066cca
     }
 
     // Loop through each button and add event listener
@@ -200,10 +164,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     if(eye1 && eye2 && eye3) {
         eye1.addEventListener("click", function () {
-            window.open("res/pythonCertificate.jpg", "_blank");
+            window.open("/res/pythonCertificate.jpg", "_blank");
         });
         eye2.addEventListener("click", function () {
-            window.open("res/kotlinCertificate.jpg", "_blank");
+            window.open("/res/kotlinCertificate.jpg", "_blank");
         });
         eye3.addEventListener("click", function () {
            alert("Unknow Error Occured");
