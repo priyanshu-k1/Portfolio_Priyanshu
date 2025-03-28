@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (downloadButton) {
         downloadButton.addEventListener("click", function () {
             let link = document.createElement("a");
-            link.href = "/res/Priyanshu-Resume.pdf"; // Replace with actual resume path
+            link.href = "res/Priyanshu-Resume.pdf"; // Replace with actual resume path
             link.download = "Priyanshu_Kumar_Resume.pdf"; // Custom filename
             document.body.appendChild(link);
             link.click();
@@ -164,10 +164,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     if(eye1 && eye2 && eye3) {
         eye1.addEventListener("click", function () {
-            window.open("/res/pythonCertificate.jpg", "_blank");
+            window.open("res/pythonCertificate.jpg", "_blank");
         });
         eye2.addEventListener("click", function () {
-            window.open("/res/kotlinCertificate.jpg", "_blank");
+            window.open("res/kotlinCertificate.jpg", "_blank");
         });
         eye3.addEventListener("click", function () {
            alert("Unknow Error Occured");
