@@ -101,6 +101,9 @@ p{
     font-family: "Poppins", sans-serif;
     font-size:1.1rem;
 }
+.intro-text{
+    font-size:1.1rem;
+}
 #h3Text{
     color: #3a434c;
     margin-top: 1.5rem;
@@ -174,8 +177,8 @@ p{
 .devPic2{
     margin-top: 1.1rem;
     width: 51%;
+    height: 27rem;
     object-fit:fill;
-    z-index: 1;
     z-index: 2; /* Higher z-index so it's initially above */
     transition: opacity 0.9s ease-in-out; 
 }
