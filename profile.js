@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Create and append project cards
         projects.forEach(project => {
-            const truncatedDesc = truncateText(project.description, 100);
+            const truncatedDesc = truncateText(project.description, 50);
             const card = document.createElement('div');
             card.className = 'cardBody';
             card.innerHTML = `
