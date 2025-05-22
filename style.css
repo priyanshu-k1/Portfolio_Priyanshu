@@ -196,7 +196,7 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 78vh;
     width: 70%;
     margin-top:5rem;
     border-radius: 8px;
@@ -451,28 +451,28 @@ h2 {
 .bubbles span:nth-child(18) { left: 16%; animation-duration: 8s; width: 30px; height: 30px; }
 .bubbles span:nth-child(19) { left: 50%; animation-duration: 3s; width: 30px; height: 30px; }
 .bubbles span:nth-child(20) { left: 11%; animation-duration: 1s; width: 30px; height: 30px; }
-.projectsScreen{
+.projectsScreen {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: fit-content;
+    min-height: 100vh;
+    padding: 2rem 0;
 }
-.projectsScreenContainer{
+
+.projectsScreenContainer {
     position: relative;
-    display: flex;
-    /* flex-direction: column; */
-    flex-wrap: wrap;
-    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    padding: 2rem;
     margin-top: 4.5rem;
     width: 90%;
-    height: 50%;
     background-color: #0f1b2b;
     border-radius: 7px;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    gap: 1rem;
+    gap: 1.5rem;
 }
+
 .majorProject,.minorProjecttag{
     position: absolute;
     top: 12px;
@@ -543,17 +543,13 @@ h2 {
     opacity: 1;
     transform: translateY(0);
 }
-.cardBody{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 30%;
-    height: 70%;
+.cardBody {
+    position: relative;
+    height: 200px;
     border-radius: 5px;
     background-color: #16283f;
     overflow: hidden;
-    
+    transition: transform 0.3s ease;
 }
 .cardimage{
     position: relative;
@@ -965,5 +961,223 @@ h2 {
     .footerIcon{
         font-size: 2rem;
         margin-left: 1rem;
+    }
+}
+
+
+
+/* OPTION 1: Floating bubble near the developer image */
+.idea-bubble-v1 {
+    position: absolute;
+    top: 20%;
+    left: 75%;
+    width: 200px;
+    height: 80px;
+    background: rgba(196, 164, 132, 0.95);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: float 4s ease-in-out infinite;
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.bubble-text-v1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* OPTION 2: Sticky note style in corner */
+.idea-bubble-v2 {
+    position: fixed;
+    top: 120px;
+    right: 20px;
+    width: 180px;
+    height: 120px;
+    background: linear-gradient(135deg, #ffeb3b, #ffc107);
+    border-radius: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: stickyNote 3s ease-in-out infinite;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform-origin: top right;
+}
+
+.idea-bubble-v2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-left: 25px solid #f57c00;
+    border-top: 25px solid transparent;
+}
+
+.bubble-text-v2 {
+    font-family: "Jersey 25", sans-serif;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    padding: 10px;
+    line-height: 1.2;
+}
+
+/* OPTION 3: Thought bubble above buttons */
+.idea-bubble-v3 {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 90px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: bounce 2s ease-in-out infinite;
+    z-index: 10;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.idea-bubble-v3::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: #667eea;
+    border-radius: 50%;
+}
+
+.idea-bubble-v3::before {
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    left: 45%;
+    width: 12px;
+    height: 12px;
+    background: #667eea;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+
+.bubble-text-v3 {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+    text-align: center;
+    padding: 0 15px;
+}
+
+/* OPTION 4: Minimal floating tag */
+.idea-bubble-v4 {
+    position: absolute;
+    top: 25%;
+    right: 2%;
+    /* background: rgba(9, 16, 26, 0.9); */
+    border: 1px solid #C4A484;
+    border-radius: 30px;
+    padding: 6px 10px;
+    animation: pulse 3s ease-in-out infinite;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+}
+
+.bubble-text-v4 {
+    font-family: "Jersey 25", sans-serif;
+    font-size: 18px;
+    color: #C4A484;
+    white-space: nowrap;
+}
+
+.spark-icon {
+    display: inline-block;
+    margin-left: 1px;
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(-1deg); }
+    50% { transform: translateY(-15px) rotate(1deg); }
+}
+
+@keyframes stickyNote {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-2deg); }
+    75% { transform: rotate(2deg); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0px); }
+    50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        box-shadow: 0 0 0 0 rgba(196, 164, 132, 0.7);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 0 10px rgba(196, 164, 132, 0);
+        transform: scale(1.05);
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.2) rotate(180deg); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .idea-bubble-v1 {
+        top: 5%;
+        left: 5%;
+        width: 160px;
+        height: 60px;
+    }
+    
+    .idea-bubble-v2 {
+        width: 140px;
+        height: 100px;
+        right: 10px;
+    }
+    
+    .idea-bubble-v3 {
+        width: 180px;
+        height: 70px;
+    }
+    
+    .idea-bubble-v4 {
+        position: relative;
+        top: 5%;
+        left: 1%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width:98%;
+    }
+
+    .bubble-text-v1, .bubble-text-v2, .bubble-text-v3 {
+        font-size: 12px;
+    }
+    
+    .bubble-text-v4 {
+        font-size: 14px;
     }
 }

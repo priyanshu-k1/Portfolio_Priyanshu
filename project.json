@@ -1,0 +1,36 @@
+{
+  "projects": [
+    {
+        "name": "AutoScreen-AI",
+        "image": "res/autoscreen.png",
+        "alt": "AI-powered resume screening system interface",
+        "description": "An AI-powered system that automatically screens resumes based on job requirements, enhancing recruitment efficiency and accuracy.",
+        "techStack": "Python, Flask, HTML, CSS, JavaScript, Machine Learning, NLP",
+        "link": "https://github.com/priyanshu-k1/AutoScreen-AI"
+    },
+    {
+      "name": "Farm Connect",
+      "image": "res/farmConnect.webp",
+      "alt": "Farmers bending and greeting",
+      "description": "A platform to help farmers with crop information and purchases.",
+      "techStack": "HTML, CSS, JavaScript, Bootstrap",
+      "link": "https://github.com/priyanshu-k1/FarmConnect"
+    },
+    {
+      "name": "Budget Buddy",
+      "image": "res/expense.jpg",
+      "alt": "Expense tracking app interface",
+      "description": "A mobile application to track expenses with intuitive visualization.",
+      "techStack": "Flutter, Dart",
+      "link": "https://github.com/priyanshu-k1/Budget-Buddy"
+    },
+    {
+      "name": "Breeze",
+      "image": "res/weather.jpg",
+      "alt": "Weather app interface",
+      "description": "An Android application for getting weather updates with beautiful UI.",
+      "techStack": "Kotlin, Openweathermap Api",
+      "link": "https://github.com/priyanshu-k1/Breeze-android-app-"
+    }
+  ]
+}
