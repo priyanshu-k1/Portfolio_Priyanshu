@@ -39,12 +39,6 @@ A brief introduction and a **Download Resume** button.
 - LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/priyanshu-kumar-97898424a/)
 - GitHub: [GitHub Profile](https://github.com/priyanshu-k1)
 - Email: [priyanshukumar0419@gmail.com](mailto\:priyanshukumar0419@gmail.com)
-
-## ✨ Future Improvements
-
-- Add more animations
-- Implement a dark mode toggle
-- Enhance accessibility features
-
+### 
 *Developed with ❤️ by Priyanshu Kumar*
 
