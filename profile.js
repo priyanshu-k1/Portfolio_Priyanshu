@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const downloadButton = document.getElementById("downloadResume");
     const projectButtons = document.querySelectorAll(".projectButton"); // Select all buttons
     const container = document.querySelector(".conatiner");
+    const minorProjectContainer = document.querySelector(".minorProject");
 
     let scrollAmount = 2; // Adjust speed
     let scrolling = true; // Auto-scroll state
@@ -92,27 +93,24 @@ document.addEventListener("DOMContentLoaded", function () {
             interval = setInterval(autoScroll, 20);
         });
     }
+    if(minorProjectContainer){
+        fetch('project.json')
+        .then(response => response.json())
+        .then(data => {
+            const minorProjectsContainer = document.querySelector('.minorProject');
+            data.minorProjects.forEach(minorProjectsProject => {
+            const button = document.createElement('button');
+            button.className = 'glowbutton projectButton';
+            button.textContent = minorProjectsProject.name;
+            button.addEventListener('click', () => {
+                window.open(minorProjectsProject.link, '_blank');
+            });
+            minorProjectsContainer.appendChild(button);
+            });
+        })
+        .catch(error => console.error('Error loading projects:', error));}
 
-    // Loop through each button and add event listener
-    projectButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-            let projectName = button.innerHTML.trim(); // Get button text
-
-            let projectLinks = {
-                "PDC Library": "https://github.com/priyanshu-k1/PDC-Library-",
-                "BMI Calculator": "https://github.com/priyanshu-k1/bmi_calculator2",
-                "Breeze Website": "https://github.com/priyanshu-k1/Breeze-web_site",
-                "Tik Tak": "https://github.com/priyanshu-k1/tictac_using-Tkinter",
-                "Cook Book": "https://github.com/priyanshu-k1/Cook-Book-flutter"
-            };
-
-            if (projectLinks[projectName]) {
-                window.open(projectLinks[projectName], "_blank");
-            } else {
-                alert("Project not found");
-            }
-        });
-    });
+    
 });
 
 

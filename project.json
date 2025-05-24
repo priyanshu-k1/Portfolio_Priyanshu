@@ -32,5 +32,27 @@
       "techStack": "Kotlin, Openweathermap Api",
       "link": "https://github.com/priyanshu-k1/Breeze-android-app-"
     }
+  ],
+  "minorProjects": [
+    {
+      "name": "PDC Library",
+      "link": "https://github.com/priyanshu-k1/PDC-Library-"
+    },
+    {
+      "name": "BMI Calculator",
+      "link": "https://github.com/priyanshu-k1/bmi_calculator2"
+    },
+    {
+      "name": "Breeze Website",
+      "link": "https://github.com/priyanshu-k1/Breeze-web_site"
+    },
+    {
+      "name": "Tik Tak",
+      "link": "https://github.com/priyanshu-k1/tictac_using-Tkinter"
+    },
+    {
+      "name": "Cook Book",
+      "link": "https://github.com/priyanshu-k1/Cook-Book-flutter"
+    }
   ]
 }
