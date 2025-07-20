@@ -220,160 +220,60 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// class AvatarHintSystem {
-//     constructor() {
-//         this.avatarContainer = document.querySelector('.shadow'); 
-//         this.hintHand = document.createElement('div');
-//         this.hintHand.className = 'hint-hand';
-//         this.hintHand.textContent = '👆';
-//         this.avatarContainer.appendChild(this.hintHand);
 
-//         this.pulseRing = document.createElement('div');
-//         this.pulseRing.className = 'pulse-ring';
-//         this.avatarContainer.appendChild(this.pulseRing);
 
-//         this.sparklesContainer = document.createElement('div');
-//         this.sparklesContainer.className = 'sparkles';
-//         this.avatarContainer.appendChild(this.sparklesContainer);
 
-//         this.tooltip = document.createElement('div');
-//         this.tooltip.className = 'tooltip';
-//         this.tooltip.textContent = 'Hover to see real photo!';
-//         this.avatarContainer.appendChild(this.tooltip);
-        
-//         this.isHovering = false;
-//         this.hasUserInteracted = false;
-//         this.hintShownCount = 0;
-//         this.maxHints = 3;
-        
-//         this.init();
-//     }
 
-//     init() {
-//         this.setupEventListeners();
-//         this.startRandomHints();
-//         this.createSparkles();
-//     }
+function animateFingerToTarget() {
+  const finger = document.querySelector('.finger-pointer');
+  const target = document.querySelector('.devPic2');
 
-//     setupEventListeners() {
-//         this.avatarContainer.addEventListener('mouseenter', () => {
-//             this.isHovering = true;
-//             this.hasUserInteracted = true;
-//             this.tooltip.classList.add('show');
-//         });
+  if (!finger || !target) return;
 
-//         this.avatarContainer.addEventListener('mouseleave', () => {
-//             this.isHovering = false;
-//             this.tooltip.classList.remove('show');
-//         });
+  // Get center and target position
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight / 2;
 
-//         this.avatarContainer.addEventListener('click', () => {
-//             this.hasUserInteracted = true;
-//             this.createSparklesBurst();
-//         });
-//     }
+  const targetRect = target.getBoundingClientRect();
+  const targetX = targetRect.left + targetRect.width / 2;
+  const targetY = targetRect.top + targetRect.height / 2;
 
-//     startRandomHints() {
-//         setTimeout(() => {
-//             this.showHint();
-//         }, 3000);
+ 
+  finger.style.transition = 'none';
+  finger.style.opacity = '0';
+  finger.style.top = `${centerY}px`;
+  finger.style.left = `${centerX}px`;
+  finger.style.transform = 'translate(-50%, -50%) scale(1)';
 
-//         this.scheduleNextHint();
-//     }
+  void finger.offsetWidth;
 
-//     scheduleNextHint() {
-//         if (this.hintShownCount >= this.maxHints || this.hasUserInteracted) return;
+  // Move to target
+  finger.style.transition = 'transform 2s ease-in-out, opacity 0.5s ease-in-out';
+  finger.style.opacity = '1';
+  const deltaX = targetX - centerX;
+  const deltaY = targetY - centerY;
+  finger.style.setProperty('--x', `calc(-50% + ${deltaX}px)`);
+  finger.style.setProperty('--y', `calc(-50% + ${deltaY}px)`);
+  finger.style.transform = `translate(calc(-50% + ${deltaX}px), calc(-50% + ${deltaY}px)) scale(1)`;
 
-//         const interval = Math.random() * 7000 + 8000;
-        
-//         setTimeout(() => {
-//             if (!this.hasUserInteracted && !this.isHovering) {
-//                 this.showHint();
-//             }
-//             this.scheduleNextHint();
-//         }, interval);
-//     }
+  setTimeout(() => {
+    finger.classList.add('click-effect');
+  }, 2000); 
 
-//     showHint() {
-//         if (this.hasUserInteracted || this.isHovering) return;
-        
-//         this.hintShownCount++;
-//         this.hintHand.classList.add('show');
-//         this.pulseRing.classList.add('show');
-//         this.createRandomSparkles();
-        
-//         setTimeout(() => {
-//             this.hintHand.classList.remove('show');
-//             this.pulseRing.classList.remove('show');
-//         }, 2500);
-//     }
+  setTimeout(() => {
+    finger.classList.remove('click-effect');
+    finger.style.opacity = '0';
+  }, 2500); // After click
 
-//     createSparkles() {
-//         for (let i = 0; i < 8; i++) {
-//             const sparkle = document.createElement('div');
-//             sparkle.className = 'sparkle';
-//             this.sparklesContainer.appendChild(sparkle);
-//         }
-//     }
+  setTimeout(() => {
+    finger.style.transform = 'translate(-50%, -50%) scale(1)';
+  }, 3000);
+}
 
-//     createRandomSparkles() {
-//         const sparkles = this.sparklesContainer.querySelectorAll('.sparkle');
-        
-//         sparkles.forEach((sparkle, index) => {
-//             const angle = (index / sparkles.length) * 360 + Math.random() * 45;
-//             const radius = 120 + Math.random() * 40;
-//             const x = Math.cos(angle * Math.PI / 180) * radius;
-//             const y = Math.sin(angle * Math.PI / 180) * radius;
-            
-//             sparkle.style.left = `calc(50% + ${x}px)`;
-//             sparkle.style.top = `calc(50% + ${y}px)`;
-            
-//             setTimeout(() => {
-//                 sparkle.classList.add('show');
-//                 setTimeout(() => sparkle.classList.remove('show'), 2000);
-//             }, index * 200);
-//         });
-//     }
+function startPointerLoop() {
+  animateFingerToTarget(); 
+  setInterval(animateFingerToTarget, 10000); 
+}
 
-//     createSparklesBurst() {
-//         const sparkles = this.sparklesContainer.querySelectorAll('.sparkle');
-        
-//         sparkles.forEach((sparkle, index) => {
-//             const angle = Math.random() * 360;
-//             const radius = 80 + Math.random() * 60;
-//             const x = Math.cos(angle * Math.PI / 180) * radius;
-//             const y = Math.sin(angle * Math.PI / 180) * radius;
-            
-//             sparkle.style.left = `calc(50% + ${x}px)`;
-//             sparkle.style.top = `calc(50% + ${y}px)`;
-            
-//             setTimeout(() => {
-//                 sparkle.classList.add('show');
-//                 setTimeout(() => sparkle.classList.remove('show'), 2000);
-//             }, index * 50);
-//         });
-//     }
-// }
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     setTimeout(() => {
-//         const avatarContainer = document.querySelector('.shadow');
-//         if (avatarContainer && !document.querySelector('.hint-hand')) {
-//             try {
-//                 new AvatarHintSystem();
-                
-//                 // Random hand emoji changer
-//                 const handEmojis = ['👆', '☝️', '👇', '🖱️', '✋'];
-//                 setInterval(() => {
-//                     const hintHand = document.querySelector('.hint-hand');
-//                     if (hintHand) {
-//                         const randomEmoji = handEmojis[Math.floor(Math.random() * handEmojis.length)];
-//                         hintHand.textContent = randomEmoji;
-//                     }
-//                 }, 5000);
-//             } catch (error) {
-//                 console.error('Avatar hint initialization error:', error);
-//             }
-//         }
-//     }, 300);
-// });
+window.addEventListener('load', startPointerLoop);
+window.addEventListener('resize', animateFingerToTarget); 

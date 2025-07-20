@@ -717,7 +717,39 @@ h2 {
     color: #114a95;
     /* filter: drop-shadow(5px 0px 10px  #5384ed); */
 }
+/* Finger Pointer CSS */
+.finger-pointer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 2s ease-in-out,
+    opacity 0.5s ease-in-out;
+}
 
+.finger-pointer img {
+  width: 4rem;
+  height: auto;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
+}
+
+.finger-pointer.show {
+  opacity: 1;
+}
+
+.finger-pointer.click-effect {
+  animation: clickPulse 0.4s ease-in-out;
+}
+
+@keyframes clickPulse {
+  0% { transform: translate(var(--x, -50%), var(--y, -50%)) scale(1); }
+  50% { transform: translate(var(--x, -50%), var(--y, -50%)) scale(0.9); }
+  100% { transform: translate(var(--x, -50%), var(--y, -50%)) scale(1); }
+}
 
 @media (max-width: 768px) {
     .glowing {
@@ -1340,3 +1372,7 @@ h2 {
         font-size: 14px;
     }
 }
+
+
+
+
