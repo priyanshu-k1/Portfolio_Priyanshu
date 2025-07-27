@@ -115,13 +115,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (devPic && devPic2) { 
         devPic2.addEventListener("mouseenter", function () { 
-            devPic2.style.opacity = "0"; 
-            devPic.style.marginTop = "1.4rem"; 
+            devPic2.style.opacity = "0";
+            devPic2.style.transform = "scale(0.8)";
+            devPic.style.marginTop = "1.3rem"; 
+            devPic.style.transform = "scale(1.2)";
         });
 
         devPic2.addEventListener("mouseleave", function () { 
             devPic2.style.opacity = "1";  
+            devPic2.style.transform = "scale(1)";
             devPic.style.marginTop = "50rem";
+            devPic.style.transform = "scale(0.5)";
         });
     }
     if(eye1 && eye2 && eye3) {
@@ -132,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
             window.open("res/kotlinCertificate.jpg", "_blank");
         });
         eye3.addEventListener("click", function () {
-           alert("Unknow Error Occured");
+           alert("Unknown Error Occurred. Please try again later.");
         });
     }
 });
@@ -222,7 +226,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+window.addEventListener('load', () => {
+  const target = document.querySelector('.devPic2');
 
+  if (!target) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Visible in Home section
+          animateFingerToTarget(); // run once immediately
+          startPointerLoop();
+        } else {
+          // Scrolled away
+          stopPointerLoop();
+        }
+      });
+    },
+    { threshold: 0.6 } // 60% visibility to trigger
+  );
+
+  observer.observe(target);
+});
+
+window.addEventListener('resize', animateFingerToTarget);
+
+
+let fingerIntervalId = null;
 
 function animateFingerToTarget() {
   const finger = document.querySelector('.finger-pointer');
@@ -230,7 +261,6 @@ function animateFingerToTarget() {
 
   if (!finger || !target) return;
 
-  // Get center and target position
   const centerX = window.innerWidth / 2;
   const centerY = window.innerHeight / 2;
 
@@ -238,7 +268,6 @@ function animateFingerToTarget() {
   const targetX = targetRect.left + targetRect.width / 2;
   const targetY = targetRect.top + targetRect.height / 2;
 
- 
   finger.style.transition = 'none';
   finger.style.opacity = '0';
   finger.style.top = `${centerY}px`;
@@ -247,7 +276,6 @@ function animateFingerToTarget() {
 
   void finger.offsetWidth;
 
-  // Move to target
   finger.style.transition = 'transform 2s ease-in-out, opacity 0.5s ease-in-out';
   finger.style.opacity = '1';
   const deltaX = targetX - centerX;
@@ -258,12 +286,12 @@ function animateFingerToTarget() {
 
   setTimeout(() => {
     finger.classList.add('click-effect');
-  }, 2000); 
+  }, 2000);
 
   setTimeout(() => {
     finger.classList.remove('click-effect');
     finger.style.opacity = '0';
-  }, 2500); // After click
+  }, 2500);
 
   setTimeout(() => {
     finger.style.transform = 'translate(-50%, -50%) scale(1)';
@@ -271,9 +299,13 @@ function animateFingerToTarget() {
 }
 
 function startPointerLoop() {
-  animateFingerToTarget(); 
-  setInterval(animateFingerToTarget, 10000); 
+  fingerIntervalId = setInterval(animateFingerToTarget, 10000);
 }
 
-window.addEventListener('load', startPointerLoop);
-window.addEventListener('resize', animateFingerToTarget); 
+function stopPointerLoop() {
+  if (fingerIntervalId) {
+    clearInterval(fingerIntervalId);
+    fingerIntervalId = null;
+  }
+}
+

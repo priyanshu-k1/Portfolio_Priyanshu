@@ -168,11 +168,12 @@ p{
 
 }
 .devPic{
-    margin-top: 40rem;
+   /* background-color: red; */
     width: 90%;
     object-fit:fill;
     z-index: 1;
-    transition: margin-top 0.9s ease-in-out;
+    transform: scale(0.8);
+    transition: all 0.9s ease-in-out;
 }
 .devPic2{
     margin-top: 1.1rem;
@@ -180,7 +181,7 @@ p{
     height: 27rem;
     object-fit:fill;
     z-index: 2; /* Higher z-index so it's initially above */
-    transition: opacity 0.9s ease-in-out; 
+    transition: all 0.9s ease-in-out; 
 }
 
 
@@ -719,7 +720,7 @@ h2 {
 }
 /* Finger Pointer CSS */
 .finger-pointer {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
