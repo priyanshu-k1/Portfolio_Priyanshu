@@ -111,7 +111,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const eye1 = document.querySelector(".eye1");
     const eye2 = document.querySelector(".eye2");
     const eye3 = document.querySelector(".eye3");
-    // devPic.style.marginTop = "50rem";
+ 
+    
+    // Ripple effect on click
+    document.addEventListener('click', (e) => {
+    const ripple = document.createElement('div');
+    ripple.className = 'ripple';
+    ripple.style.left = `${e.clientX}px`;
+    ripple.style.top = `${e.clientY}px`;
+    document.body.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600); // remove after animation
+    });
 
     if (devPic && devPic2) { 
         devPic2.addEventListener("mouseenter", function () { 
