@@ -117,6 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
         devPic2.addEventListener("mouseenter", function () { 
             devPic2.style.opacity = "0";
             devPic2.style.transform = "scale(0.8)";
+            devPic.style.display="block";
             devPic.style.marginTop = "1.3rem"; 
             devPic.style.transform = "scale(1.2)";
         });
@@ -124,8 +125,10 @@ document.addEventListener("DOMContentLoaded", function () {
         devPic2.addEventListener("mouseleave", function () { 
             devPic2.style.opacity = "1";  
             devPic2.style.transform = "scale(1)";
+           
             devPic.style.marginTop = "50rem";
             devPic.style.transform = "scale(0.5)";
+            devPic.style.display="hidden";
         });
     }
     if(eye1 && eye2 && eye3) {
@@ -244,7 +247,7 @@ window.addEventListener('load', () => {
         }
       });
     },
-    { threshold: 0.6 } // 60% visibility to trigger
+    { threshold: 0.8 } // 80% visibility to trigger
   );
 
   observer.observe(target);

@@ -169,6 +169,7 @@ p{
 }
 .devPic{
    /* background-color: red; */
+    display: hidden;
     width: 90%;
     object-fit:fill;
     z-index: 1;
