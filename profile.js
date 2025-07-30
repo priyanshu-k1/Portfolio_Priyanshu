@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const projectButtons = document.querySelectorAll(".projectButton"); 
     const container = document.querySelector(".conatiner");
     const minorProjectContainer = document.querySelector(".minorProject");
+    const skillsContainer = document.querySelector(".skillsContainer");
 
     let scrollAmount = 2; 
     let scrolling = true; 
@@ -83,6 +84,77 @@ document.addEventListener("DOMContentLoaded", function () {
             interval = setInterval(autoScroll, 20);
         });
     }
+    // Intersection Observer for active link highlighting
+    const sections = document.querySelectorAll("div[id]");
+const navLinks = document.querySelectorAll(".nav-link");
+
+const activateLink = (id) => {
+  navLinks.forEach(link => {
+    link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+  });
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      activateLink(entry.target.id);
+    }
+  });
+}, {
+  threshold: 0.3, // Reduced threshold for better detection
+  rootMargin: "-10% 0px -10% 0px" // Add margin to trigger earlier
+});
+
+sections.forEach(section => observer.observe(section));
+
+// Initialize first visible section
+const initializeActiveSection = () => {
+  const windowHeight = window.innerHeight;
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  let activeSection = null;
+  let minDistance = Infinity;
+  
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    const sectionTop = rect.top + scrollTop;
+    const sectionMiddle = sectionTop + rect.height / 2;
+    const viewportMiddle = scrollTop + windowHeight / 2;
+    
+    const distance = Math.abs(sectionMiddle - viewportMiddle);
+    
+    if (distance < minDistance && rect.top < windowHeight * 0.6) {
+      minDistance = distance;
+      activeSection = section;
+    }
+  });
+  
+  if (activeSection) {
+    activateLink(activeSection.id);
+  }
+};
+
+// Initialize on load
+initializeActiveSection();
+
+// Optional: Add scroll listener for more responsive updates
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    // This will help catch any sections the observer might miss
+    const currentSection = [...sections].find(section => {
+      const rect = section.getBoundingClientRect();
+      return rect.top <= window.innerHeight * 0.4 && rect.bottom >= window.innerHeight * 0.4;
+    });
+    
+    if (currentSection) {
+      activateLink(currentSection.id);
+    }
+  }, 100);
+});
+    // Fetch and display minor projects
+    // Ensure minorProjectContainer exists before fetching
     if(minorProjectContainer){
         fetch('project.json')
         .then(response => response.json())
@@ -97,11 +169,45 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             minorProjectsContainer.appendChild(button);
             });
-        })
-        .catch(error => console.error('Error loading projects:', error));}
+        }).catch(error => console.error('Error loading projects:', error));}
 
-    
+  // Fetch and display skills
+  if(skillsContainer){
+     fetch('project.json')
+        .then(response => response.json())
+        .then(data => {
+            const skillsContainer = document.querySelector('.skillsContainer');
+            data.skills.forEach(skill => {
+                const skillElement = document.createElement('div');
+                skillElement.className = 'skillsCards';
+                skillElement.innerHTML = `
+                    <div class="iconArea"><img class="skillsIcon" src="${skill.image}" alt="${skill.name}"></div>
+                    <div class="skillNameArea"><p>${skill.name}</p></div>
+                   `;
+                skillsContainer.appendChild(skillElement);
+            });
+        }).catch(error => console.error('Error loading skills:', error));
+  }
+}
+);
+
+// Animate title on scroll
+document.addEventListener("DOMContentLoaded", () => {
+  const title = document.querySelector(".title h2");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        title.classList.add("animate-in");
+      } else {
+        title.classList.remove("animate-in");
+      }
+    });
+  }, { threshold: 0.5 });
+
+  if (title) observer.observe(title);
 });
+
 
 
 
@@ -321,4 +427,7 @@ function stopPointerLoop() {
     fingerIntervalId = null;
   }
 }
-
+/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+particlesJS.load('particles-js', 'assets/particles.json', function() {
+  console.log('callback - particles.js config loaded');
+});

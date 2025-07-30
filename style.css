@@ -7,6 +7,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lugrasimo&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sedgwick+Ave+Display&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lugrasimo&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sedgwick+Ave+Display&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Black+Han+Sans&family=Kalam:wght@300;400;700&family=Lugrasimo&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sedgwick+Ave+Display&family=Sriracha&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 @keyframes levitate {
     0% { transform: translateY(0); }
@@ -54,6 +57,7 @@ body{
     background-color: #09101a;
 }
 #navH3{
+    font-family: "Bitcount Grid Single", system-ui;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,13 +65,33 @@ body{
     width:3rem;
     /* animation: levitate 3s ease-in-out infinite alternate; */
 }
+
 a{
     float: left;
+    color: white !important;
+    transition: all 0.3s ease-in-out;
+}
+a:hover{
+    color: #f9bb7d !important;
+    text-decoration: none;
+    transform: scale(1.1);
+    
+}
+.navbarA{
+      transition: all 0.6s ease-in;
 }
 .navbarA:hover{
     filter: drop-shadow(5px 0px 10px  #C4A484);
-    transition: filter 0.6s ease-in;
-
+  }
+.nav-item{
+    transition: all 0.3s ease-in;
+}
+.nav-item:hover{
+    transform: translateY(-5px);
+}
+.nav-link.active {
+  font-weight: bold;
+  color: #C4A484 !important;
 }
 /* Home Screen */
 .screens{
@@ -187,214 +211,132 @@ p{
 
 
 
-/* Projects Screen */
+/* tech Screen */
 .technologiesScreen{
     display: flex;
     flex-direction: column;
+    padding: 5.2rem 0 0 0;
+    position: relative; /* Add this to establish stacking context */
+    min-height: 100vh;
+    
 }
-
-.conatiner{
-    padding:10px;
+.Container{
     display: flex;
-    justify-content: center;
+    justify-content:start;
+    flex-direction: column;
     align-items: center;
-    height: 78vh;
-    width: 70%;
-    margin-top:5rem;
-    border-radius: 8px;
-    gap: 1rem;
-    flex-wrap:wrap;
-    overflow: hidden;   
-}
-.flip-card {
-    background-color: transparent;
-    width: 15rem;
-    height: 13rem;
-    perspective: 1000px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
-  }
-  
-.flip-card-inner {
+    overflow-y: auto;
+    height:80vh;
+    width: 100%;
+    padding: 2rem;
+    z-index: 1;
     position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  }
-  
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-.flip-card-front, .flip-card-back {
-    display: flex;
-    flex-direction: column;
+    /* background-color: red; */
+}
+.particles{
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    
-    
-  }
-  
-.flip-card-front {
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.skillsContainer{
     display: flex;
-    align-items:center;
-    background-color: #131c2b ;
-    border-radius: 8px;
-    flex-direction: column;
-    padding:0.5rem;
-  }
-  
-.flip-card-back {
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    background-color: #C4A484;
-    color: white;
-    border-radius: 8px;
-    transform: rotateY(180deg);
-    gap:1rem;
-  }
-  .certified {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #ffcc70; /* Badge color */
-    color: #333; /* Text color */
-    padding: 5px 10px;
-    font-size: 12px;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    gap: 1rem;
+    width: 98%;
+    height: fit-content;
+    padding: 1.5rem;
+    z-index: 1;
+   
+    background: rgba(255, 255, 255, 0.13);
+    border-radius: 1rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.4px);
+    border: 1px solid rgba(245, 215, 215, 0.3);
+    position: relative;
+}
+.title{
+    width: 100%;
+    
+}
+.title h2{
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out 0.3s;
+    font-size: clamp(1.5rem, 2vw, 2.5rem);
     font-weight: bold;
-    border-radius: 5px;
-    transform: rotate(15deg); /* Tilt effect */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    color: #C4A484 !important;
+}
+.title h2.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* .thunder-icon {
+  animation: floatBolt 1s ease-in-out infinite;
+  position: relative;
 }
 
-.langNAme{
-    margin-top: 1.5rem;
-    font-size: 3rem;
-    color: #758595  ;
-    font-stretch: expanded;
+@keyframes floatBolt {
+  0%   { transform: translateY(0);color: white; }
+  90%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+} */
+.skillsCards{
+    display: flex;
+    flex-direction: row;
+    width: 13.3rem;
+    height: 4rem;
+    background-color: rgba(255, 254, 254, 0.539);
+    border-radius:0.3rem;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+}
+.skillsCards:hover{
+    transform: scale(1.1);
+    transform: translateY(-4px);
+    background-color: #C4A484 ;
+    
+}
+
+.iconArea{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:30%;
+    height:100%;
+    padding: 0.5rem;
+    overflow: hidden;
+    
+}
+.skillNameArea{
+    display: flex;
+    align-items: center;
+    padding:0.1rem;
+    width:70%;
+    height:100%;
    
 }
-.python,.js,.kotlin,.SQL{
-    font-weight: 950;
-    font-size: 7rem; 
-    transform: scaleY(1.3);
-
-
+.skillNameArea p{
+    margin: 0;
+    padding: 0;
+    color:  #43372a ;
+    font-size: 1.4rem;
+    font-family: "Merriweather", serif;
+    font-weight: 500;
+    text-transform: capitalize;
 }
-.DART,.JAVA{
-    margin-top: 4.1rem;
-    font-weight: 900;
-    font-size: 4.5rem; 
-    transform: scaleY(1.3);
-}
-.subtext{
-    margin-bottom: -0.2;
-    position: absolute;
-    bottom: 0;
-    color: #c4d2cb;
-}
-.content {
-    font-size: 60px;
-    font-weight: bold;
-    color: #ffffff;
-    text-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+.skillsIcon{
+    width: 3rem;
+    height: 3rem;
 }
 
-/* Back Side Skill Rating */
-h2 {
-    font-size: 22px;
-    font-weight: bold;
-    color: #ffcc70;
-    margin-bottom: -15px;
-}
 
-/* Rating Bar */
-.rating-container {
-    width: 80%;
-    text-align: center;
-}
 
-.progress-bar {
-    width: 100%;
-    height: 12px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-.skill-breakdown p {
-    font-size: 1rem;
-    color: #ffffff;
-    margin: 4px 0;
-}
-.progress {
-    height: 100%;
-    background: linear-gradient(135deg, #ffcc70, #ff8c00);
-    border-radius: 10px;
-    transition: width 0.6s ease-in-out;
-    box-shadow: 0px 0px 10px rgba(255, 204, 112, 0.8);
-}
 
-.skill-level {
-    margin-top: 5px;
-    font-size: 16px;
-    color: #ffffff;
-}
-
-/* Eye Icon Styling */
-.eye-icon {
-    position: absolute;
-    width: 2rem;
-    height: 2rem;
-    top: 0.4rem;
-    right: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 8px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.3s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.eye-icon i {
-    font-size: 18px;
-    color: #ffffff;
-}
-
-/* Tooltip Styling */
-.tooltip {
-    position: absolute;
-    top: -2rem;
-    right: 50%;
-    transform: translateX(50%);
-    background: #ffffff;
-    color: #222;
-    padding: 5px 10px;
-    font-size: 12px;
-    border-radius: 5px;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.3s ease-in-out;
-}
-
-/* Show Tooltip on Hover */
-.eye-icon:hover .tooltip {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Hover Effect */
-.eye-icon:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
 
 
 
@@ -811,83 +753,7 @@ h2 {
         width: 50%;
         height: 7vh;
     }
-    .conatiner {
-        width: 90%;
-        flex-direction: column;
-        align-items: center;
-        /* flex-wrap: nowrap; */
-        overflow-y: hidden;
-        scrollbar-width: thin;
-    }
-    .flip-card {
-        display: flex;
-        width: 100%;
-        height: 30rem;
-        align-items: center;
-        justify-content: center;
-
-    }
-    .certified{
-        top: 2rem;
-        height: 3.3rem;
-        width: 13rem;
-        font-size: 1.5rem;
-        text-align: center;
-        padding: 0.5rem;
-    }
-    .flip-card-front,
-    .flip-card-back {
-        align-items: center;
-        justify-content: center;
-        height: 30rem;
-    }
-    .langNAme {
-        font-size: 11rem;
-    }
-
-    .DART, .JAVA {
-        font-size: 3.5rem;
-    }
-    .subtext{
-        font-size: 2.5rem;
-    }
-    .flip-card-back h2 {
-        font-size: 3rem;
-    }
-    .eye-icon {
-        width: 3rem;
-        height: 3rem;
-        top: 2.7rem;
-        right: 20px;
-    }
     
-    .eye-icon .fa{
-        font-size: 2.3rem;
-        transition: all 0.3s ease-in-out;
-    }
-    .eye-icon .fa:hover{
-        color: #c27647;
-    }
-
-    
-    .rating-container{
-        padding: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        /* background-color: pink; */
-        width: 90%;
-        height: 70%;
-    }
-    /* have to fix this shit  */
-    .skill-breakdown p {
-        font-size: 1.4rem;
-        color: #ffffff;
-    }
-    .skill-level{
-        font-size: 2rem;
-    }
     .conatiner::-webkit-scrollbar {
         height: 5px; /* Thin scrollbar */
     }
@@ -914,6 +780,8 @@ h2 {
         scrollbar-width: thin;
         /* background-color: yellow; */
     }
+
+
  
     .cardBody{
         margin-top: 3rem;
@@ -1012,8 +880,196 @@ h2 {
         margin-left: 1rem;
     }
 }
+/* Mobile Portrait Styles for Skills Section */
+@media screen and (max-width: 768px) {
+  .technologiesScreen {
+    padding: 3rem 0 0 0;
+    min-height: 100vh;
+  }
 
+  .Container {
+    height: auto;
+    min-height: 80vh;
+    padding: 1rem;
+    overflow-y: visible;
+  }
 
+  .skillsContainer {
+    width: 100%;
+    padding: 1rem;
+    gap: 0.8rem;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.8rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(245, 215, 215, 0.2);
+  }
+
+  .title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .title h2 {
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+    color: #C4A484 !important;
+    margin: 0;
+  }
+
+  /* Skills Cards - Mobile Layout */
+  .skillsCards {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 280px;
+    height: 3.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(196, 164, 132, 0.3);
+  }
+
+  .skillsCards:hover,
+  .skillsCards:active {
+    transform: translateY(-2px) scale(1.02);
+    background: rgba(196, 164, 132, 0.9);
+    box-shadow: 0 4px 12px rgba(196, 164, 132, 0.3);
+  }
+
+  .skillsCards:hover .skillNameArea p,
+  .skillsCards:active .skillNameArea p {
+    color: #fff;
+  }
+
+  .iconArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    padding: 0.4rem;
+    background: rgba(196, 164, 132, 0.1);
+  }
+
+  .skillsIcon {
+    width: 2.2rem;
+    height: 2.2rem;
+    object-fit: contain;
+  }
+
+  .skillNameArea {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 0.8rem;
+    width: 75%;
+    height: 100%;
+  }
+
+  .skillNameArea p {
+    margin: 0;
+    padding: 0;
+    color: #43372a;
+    font-size: 1rem;
+    font-family: "Merriweather", serif;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 1.2;
+  }
+}
+
+/* Extra Small Mobile Devices */
+@media screen and (max-width: 480px) {
+  .technologiesScreen {
+    padding: 2rem 0 0 0;
+  }
+
+  .Container {
+    padding: 0.5rem;
+  }
+
+  .skillsContainer {
+    padding: 0.8rem;
+    gap: 0.6rem;
+  }
+
+  .title h2 {
+    font-size: clamp(1.1rem, 5vw, 1.5rem);
+  }
+
+  .skillsCards {
+    max-width: 100%;
+    height: 3.2rem;
+  }
+
+  .skillsIcon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .skillNameArea {
+    padding: 0 0.6rem;
+  }
+
+  .skillNameArea p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Portrait orientation specific */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .skillsContainer {
+    flex-direction: column;
+    align-items: center;
+    max-height: none;
+  }
+
+  .skillsCards {
+    width: 90%;
+    min-width: 250px;
+    max-width: 320px;
+  }
+}
+
+/* Landscape mobile */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .technologiesScreen {
+    padding: 1rem 0 0 0;
+  }
+
+  .Container {
+    height: 70vh;
+    padding: 0.8rem;
+  }
+
+  .skillsContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+  }
+
+  .skillsCards {
+    width: 45%;
+    min-width: 200px;
+    max-width: 240px;
+  }
+}
+
+/* Touch improvements for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .skillsCards {
+    transition: all 0.2s ease-in-out;
+  }
+
+  .skillsCards:active {
+    transform: scale(0.98);
+  }
+}
 
 /* OPTION 1: Floating bubble near the developer image */
 .idea-bubble-v1 {
