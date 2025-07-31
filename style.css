@@ -880,196 +880,11 @@ p{
         margin-left: 1rem;
     }
 }
-/* Mobile Portrait Styles for Skills Section */
-@media screen and (max-width: 768px) {
-  .technologiesScreen {
-    padding: 3rem 0 0 0;
-    min-height: 100vh;
-  }
 
-  .Container {
-    height: auto;
-    min-height: 80vh;
-    padding: 1rem;
-    overflow-y: visible;
-  }
 
-  .skillsContainer {
-    width: 100%;
-    padding: 1rem;
-    gap: 0.8rem;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 0.8rem;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(245, 215, 215, 0.2);
-  }
 
-  .title {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
 
-  .title h2 {
-    font-size: clamp(1.3rem, 4vw, 1.8rem);
-    color: #C4A484 !important;
-    margin: 0;
-  }
 
-  /* Skills Cards - Mobile Layout */
-  .skillsCards {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    max-width: 280px;
-    height: 3.5rem;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 0.5rem;
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(196, 164, 132, 0.3);
-  }
-
-  .skillsCards:hover,
-  .skillsCards:active {
-    transform: translateY(-2px) scale(1.02);
-    background: rgba(196, 164, 132, 0.9);
-    box-shadow: 0 4px 12px rgba(196, 164, 132, 0.3);
-  }
-
-  .skillsCards:hover .skillNameArea p,
-  .skillsCards:active .skillNameArea p {
-    color: #fff;
-  }
-
-  .iconArea {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25%;
-    height: 100%;
-    padding: 0.4rem;
-    background: rgba(196, 164, 132, 0.1);
-  }
-
-  .skillsIcon {
-    width: 2.2rem;
-    height: 2.2rem;
-    object-fit: contain;
-  }
-
-  .skillNameArea {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0 0.8rem;
-    width: 75%;
-    height: 100%;
-  }
-
-  .skillNameArea p {
-    margin: 0;
-    padding: 0;
-    color: #43372a;
-    font-size: 1rem;
-    font-family: "Merriweather", serif;
-    font-weight: 500;
-    text-transform: capitalize;
-    line-height: 1.2;
-  }
-}
-
-/* Extra Small Mobile Devices */
-@media screen and (max-width: 480px) {
-  .technologiesScreen {
-    padding: 2rem 0 0 0;
-  }
-
-  .Container {
-    padding: 0.5rem;
-  }
-
-  .skillsContainer {
-    padding: 0.8rem;
-    gap: 0.6rem;
-  }
-
-  .title h2 {
-    font-size: clamp(1.1rem, 5vw, 1.5rem);
-  }
-
-  .skillsCards {
-    max-width: 100%;
-    height: 3.2rem;
-  }
-
-  .skillsIcon {
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .skillNameArea {
-    padding: 0 0.6rem;
-  }
-
-  .skillNameArea p {
-    font-size: 0.9rem;
-  }
-}
-
-/* Portrait orientation specific */
-@media screen and (max-width: 768px) and (orientation: portrait) {
-  .skillsContainer {
-    flex-direction: column;
-    align-items: center;
-    max-height: none;
-  }
-
-  .skillsCards {
-    width: 90%;
-    min-width: 250px;
-    max-width: 320px;
-  }
-}
-
-/* Landscape mobile */
-@media screen and (max-width: 768px) and (orientation: landscape) {
-  .technologiesScreen {
-    padding: 1rem 0 0 0;
-  }
-
-  .Container {
-    height: 70vh;
-    padding: 0.8rem;
-  }
-
-  .skillsContainer {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 100%;
-  }
-
-  .skillsCards {
-    width: 45%;
-    min-width: 200px;
-    max-width: 240px;
-  }
-}
-
-/* Touch improvements for mobile */
-@media (hover: none) and (pointer: coarse) {
-  .skillsCards {
-    transition: all 0.2s ease-in-out;
-  }
-
-  .skillsCards:active {
-    transform: scale(0.98);
-  }
-}
 
 /* OPTION 1: Floating bubble near the developer image */
 .idea-bubble-v1 {
@@ -1462,3 +1277,205 @@ p{
     }
 
 
+/* Mobile Portrait Styles for Skills Section */
+@media screen and (max-width: 768px) {
+  .technologiesScreen {
+    padding: 3rem 0 0 0;
+    min-height: 100vh;
+  }
+  .particles{
+    margin-top:15rem;
+  }
+
+  .Container {
+    margin-bottom: -3rem;
+    height: auto;
+    min-height: 90vh;
+    padding: 1rem;
+    overflow-y: visible;
+  }
+
+  .skillsContainer {
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.8rem;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(245, 215, 215, 0.2);
+  }
+
+  .title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .title h2 {
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+    color: #C4A484 !important;
+    margin: 0;
+  }
+
+  /* Skills Cards - Mobile Layout (Side by Side) */
+  .skillsCards {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    min-width: 140px;
+    max-width: 160px;
+    height: 3.3rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(196, 164, 132, 0.3);
+  }
+
+  .skillsCards:hover,
+  .skillsCards:active {
+    transform: translateY(-2px) scale(1.02);
+    background: rgba(196, 164, 132, 0.9);
+    box-shadow: 0 4px 12px rgba(196, 164, 132, 0.3);
+  }
+
+  .skillsCards:hover .skillNameArea p,
+  .skillsCards:active .skillNameArea p {
+    color: #fff;
+  }
+
+  .iconArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    padding: 0.4rem;
+    background: rgba(196, 164, 132, 0.1);
+  }
+
+  .skillsIcon {
+    width: 2.2rem;
+    height: 2.2rem;
+    object-fit: contain;
+  }
+
+  .skillNameArea {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 0.8rem;
+    width: 75%;
+    height: 100%;
+  }
+
+  .skillNameArea p {
+    margin: 0;
+    padding: 0;
+    color: #43372a;
+    font-size: 0.8rem;
+    font-family: "Merriweather", serif;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 1.2;
+  }
+}
+
+/* Extra Small Mobile Devices */
+@media screen and (max-width: 480px) {
+  .technologiesScreen {
+    padding: 2rem 0 0 0;
+  }
+
+  .Container {
+    padding: 0.5rem;
+  }
+
+  .skillsContainer {
+    padding: 0.8rem;
+    gap: 0.6rem;
+  }
+
+  .title h2 {
+    font-size: clamp(1.1rem, 5vw, 1.5rem);
+  }
+
+  .skillsCards {
+    max-width: 100%;
+    width: 48%;
+    min-width: 130px;
+    height: 3rem;
+  }
+
+  .skillsIcon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .skillNameArea {
+    padding: 0 0.6rem;
+  }
+
+  .skillNameArea p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Portrait orientation specific */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .skillsContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    max-height: none;
+  }
+
+  .skillsCards {
+    width: 48%;
+    min-width: 140px;
+    max-width: 160px;
+  }
+}
+
+/* Landscape mobile */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .technologiesScreen {
+    padding: 1rem 0 0 0;
+  }
+
+  .Container {
+    height: 70vh;
+    padding: 0.8rem;
+  }
+
+  .skillsContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+  }
+
+  .skillsCards {
+    width: 45%;
+    min-width: 200px;
+    max-width: 240px;
+  }
+}
+
+/* Touch improvements for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .skillsCards {
+    transition: all 0.2s ease-in-out;
+  }
+
+  .skillsCards:active {
+    transform: scale(0.98);
+  }
+}

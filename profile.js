@@ -182,8 +182,7 @@ window.addEventListener('scroll', () => {
                 skillElement.className = 'skillsCards';
                 skillElement.innerHTML = `
                     <div class="iconArea"><img class="skillsIcon" src="${skill.image}" alt="${skill.name}"></div>
-                    <div class="skillNameArea"><p>${skill.name}</p></div>
-                   `;
+                    <div class="skillNameArea"><p>${skill.name}</p></div>`;
                 skillsContainer.appendChild(skillElement);
             });
         }).catch(error => console.error('Error loading skills:', error));
