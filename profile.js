@@ -1,6 +1,9 @@
 function letsChat(){
     window.open("https://t.me/Priyanshuk_01",'_blank'); 
 }
+function removeSpecialCharacters(input) {
+  return input.replace(/[.,\-=_!@#$%^&*(){}[\]<>?/\\|~`:;"']/g, '');
+}
 function makeElementClickable() {
   const ideaBubble = document.querySelector('.idea-bubble-v4');
   
@@ -86,24 +89,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     // Intersection Observer for active link highlighting
     const sections = document.querySelectorAll("div[id]");
-const navLinks = document.querySelectorAll(".nav-link");
+    const navLinks = document.querySelectorAll(".nav-link");
 
-const activateLink = (id) => {
-  navLinks.forEach(link => {
-    link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
-  });
-};
+    const activateLink = (id) => {
+      navLinks.forEach(link => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+      });
+    };
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      activateLink(entry.target.id);
-    }
-  });
-}, {
-  threshold: 0.3, // Reduced threshold for better detection
-  rootMargin: "-10% 0px -10% 0px" // Add margin to trigger earlier
-});
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          activateLink(entry.target.id);
+        }
+      });
+    }, {
+      threshold: 0.3, // Reduced threshold for better detection
+      rootMargin: "-10% 0px -10% 0px" // Add margin to trigger earlier
+    });
 
 sections.forEach(section => observer.observe(section));
 
@@ -180,6 +183,7 @@ window.addEventListener('scroll', () => {
             data.skills.forEach(skill => {
                 const skillElement = document.createElement('div');
                 skillElement.className = 'skillsCards';
+                skillElement.id = removeSpecialCharacters(skill.name);
                 skillElement.innerHTML = `
                     <div class="iconArea"><img class="skillsIcon" src="${skill.image}" alt="${skill.name}"></div>
                     <div class="skillNameArea"><p>${skill.name}</p></div>`;
@@ -205,6 +209,34 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.5 });
 
   if (title) observer.observe(title);
+
+  const dot = document.querySelector('.cursor-dot');
+const outline = document.querySelector('.cursor-outline');
+
+let dotX = 0, dotY = 0;
+let outlineX = 0, outlineY = 0;
+
+window.addEventListener('mousemove', e => {
+  dotX = e.clientX;
+  dotY = e.clientY;
+});
+
+function animate() {
+  // Dot follows instantly
+  dot.style.left = dotX + 'px';
+  dot.style.top = dotY + 'px';
+
+  // Outline follows with delay
+  outlineX += (dotX - outlineX) * 0.15;
+  outlineY += (dotY - outlineY) * 0.15;
+  outline.style.left = outlineX + 'px';
+  outline.style.top = outlineY + 'px';
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
 });
 
 
@@ -216,6 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const eye1 = document.querySelector(".eye1");
     const eye2 = document.querySelector(".eye2");
     const eye3 = document.querySelector(".eye3");
+    const shadow = document.querySelector(".shadow");
  
     
     // Ripple effect on click
@@ -234,16 +267,21 @@ document.addEventListener("DOMContentLoaded", function () {
             devPic2.style.transform = "scale(0.8)";
             devPic.style.display="block";
             devPic.style.marginTop = "1.3rem"; 
-            devPic.style.transform = "scale(1.2)";
+            devPic.style.transform = "scale(1.3)";
+            // shadow.style.transition = "all 0.6s ease-in-out";
+            // shadow.style.background = "linear-gradient(135deg, #1f1c2c, #928dab)";
+
+            
         });
 
         devPic2.addEventListener("mouseleave", function () { 
             devPic2.style.opacity = "1";  
             devPic2.style.transform = "scale(1)";
-           
             devPic.style.marginTop = "50rem";
             devPic.style.transform = "scale(0.5)";
             devPic.style.display="hidden";
+            // shadow.style.background = "linear-gradient(to left, #ffc081, #EECDA3)";
+
         });
     }
     if(eye1 && eye2 && eye3) {
@@ -344,33 +382,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-window.addEventListener('load', () => {
-  const target = document.querySelector('.devPic2');
+// window.addEventListener('load', () => {
+//   const target = document.querySelector('.devPic2');
 
-  if (!target) return;
+//   if (!target) return;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Visible in Home section
-          animateFingerToTarget(); // run once immediately
-          startPointerLoop();
-        } else {
-          // Scrolled away
-          stopPointerLoop();
-        }
-      });
-    },
-    { threshold: 0.8 } // 80% visibility to trigger
-  );
+//   const observer = new IntersectionObserver(
+//     (entries) => {
+//       entries.forEach(entry => {
+//         if (entry.isIntersecting) {
+//           // Visible in Home section
+//           animateFingerToTarget(); // run once immediately
+//           startPointerLoop();
+//         } else {
+//           // Scrolled away
+//           stopPointerLoop();
+//         }
+//       });
+//     },
+//     { threshold: 0.8 } // 80% visibility to trigger
+//   );
 
-  observer.observe(target);
-});
-
-window.addEventListener('resize', animateFingerToTarget);
+//   observer.observe(target);
+// });
 
 
+
+// Pointer animation for the finger icon
 let fingerIntervalId = null;
 
 function animateFingerToTarget() {
@@ -416,10 +454,11 @@ function animateFingerToTarget() {
   }, 3000);
 }
 
-function startPointerLoop() {
-  fingerIntervalId = setInterval(animateFingerToTarget, 10000);
-}
-
+// stopped the exectution of the animation cause it was kinda unprofessional
+// function startPointerLoop() {
+//   fingerIntervalId = setInterval(animateFingerToTarget, 10000);
+// }
+// window.addEventListener('resize', animateFingerToTarget);
 function stopPointerLoop() {
   if (fingerIntervalId) {
     clearInterval(fingerIntervalId);

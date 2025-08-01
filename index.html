@@ -1,165 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Priyanshu Kumar</title>
   <link rel="shortcut icon" href="res/logo.png" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-          
   <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
   <script src="profile.js"></script>
-  
+
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg bg-dark fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand text-light navbarA" href="https://github.com/priyanshu-k1" target="_blank"
-            style="min-width:100px;">
-            <div class="rounded-circle">
-              <h3 style="background-color: #151515;text-align: center;" id="navH3" class="rounded-circle ">KP</h3>
+  <nav class="navbar navbar-expand-lg bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light navbarA" href="https://github.com/priyanshu-k1" target="_blank"
+        style="min-width:100px;">
+        <div class="rounded-circle">
+          <h3 style="background-color: #151515;text-align: center;" id="navH3" class="rounded-circle ">KP</h3>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="fa fa-bars text-light"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="#Home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Skills">Skills</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#Projects">Projects</a>
+          </li>
+          <li class="nav-tabs">
+            <div class="idea-bubble-v4">
+              <div class="bubble-text-v4">
+                <span class="spark-icon">✨</span>
+                Ready to build something awesome?
+              </div>
             </div>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="fa fa-bars text-light"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="homeScreenDiv screens" id="Home">
+    <div class="segment textArea">
+      <div class="bottomSegment">
+        <h2 class="text-light">Hi,I'm <span class="auto-text"></span></h2>
+        <h3 id="h3Text">A developer all you need.</h3>
+        <p class="text-light intro-text">
+          I'm a developer who excels at turning complex challenges into smooth,
+          well-crafted solutions. I focus on creating products that not only work seamlessly
+          but also feel great to use—engaging, efficient, and user-friendly.
+        </p>
+
+        <div class="buttonSpace">
+          <button class="download buttons" id="chat" onclick="letsChat()">
+            Let's Chat on <i class="fa fa-telegram fa-2x icon2" aria-hidden="true"></i>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a class="nav-link" aria-current="page" href="#Home">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#Skills">Skills</a>
-              </li>
-              
-              <li class="nav-item">
-                <a class="nav-link" href="#Projects">Projects</a>
-              </li>
-              <li class="nav-item">
-                <div class="idea-bubble-v4">
-                  <div class="bubble-text-v4">
-                    <span class="spark-icon">✨</span>
-                    Ready to build something awesome? 
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-      <div class="homeScreenDiv screens" id="Home">        
-        <div class="segment textArea">
-          <div class="bottomSegment">
-            <h2 class="text-light">Hi,I'm <span class="auto-text"></span></h2>
-            <h3 id="h3Text">A developer all you need.</h3>
-            <p class="text-light intro-text">
-               I'm a developer who excels at turning complex challenges into smooth,
-                well-crafted solutions. I focus on creating products that not only work seamlessly
-                 but also feel great to use—engaging, efficient, and user-friendly.
-            </p>
-            
-            <div class="buttonSpace">
-              <button class="download buttons" id="chat" onclick="letsChat()">
-                Let's Chat on <i class="fa fa-telegram fa-2x icon2" aria-hidden="true"></i>
-              </button>
-              <button class="chat buttons" id="downloadResume">
-                Download Cv<span class="material-symbols-outlined icon sm">
-                  arrow_downward
-                </span>
-              </button>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="segment imageArea">
-          <div class="shadow">
-            <img src="res/avatar2.png" alt="dev-pic" class="devPic" style="margin-top:45rem;">
-          </div>
-           <img src="res/avatar.png" alt="dev2-pic" class="devPic2">
-          </div>
-          <div class="finger-pointer">
-            <img src="res/finger-pointer.png" alt="Click hint">
-          </div>
-      </div>
-
-      <div class="technologiesScreen screens" id="Skills">
-        <div class="Container particles" id="particles-js"></div>
-        <div class="Container">
-          <div class="skillsContainer">
-            <div class="title">
-              <h2>Superpowers  <i class="fa fa-bolt thunder-icon"></i></h2>
-            </div>
-
-          </div>
+          <button class="chat buttons" id="downloadResume">
+            Download Cv<span class="material-symbols-outlined icon sm">
+              arrow_downward
+            </span>
+          </button>
         </div>
       </div>
 
+    </div>
 
+    <div class="segment imageArea">
+      <div class="shadow">
+        <img src="res/avatar2.png" alt="dev-pic" class="devPic" style="margin-top:45rem;">
+      </div>
+      <img src="res/avatar.png" alt="dev2-pic" class="devPic2">
+    </div>
+    <div class="finger-pointer">
+      <img src="res/finger-pointer.png" alt="Click hint">
+    </div>
+  </div>
 
-      <div class="projectsScreen screens" id="Projects">
-        
-        <div class="projectsScreenContainer">
-          <span class="majorProject">MAJOR PROJECTS</span>
+  <div class="technologiesScreen screens" id="Skills">
+    <div class="Container particles" id="particles-js"></div>
+    <div class="Container">
+      <div class="skillsContainer">
+        <div class="title">
+          <h2>Superpowers <i class="fa fa-bolt thunder-icon"></i></h2>
         </div>
 
-        <div class="minorProject">
-            <span class="minorProjecttag">MINOR PROJECTS</span>
-          </div>
       </div>
+    </div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
 
-      <div class="bubbles">
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-      </div>
+  </div>
+
+
+
+  <div class="projectsScreen screens" id="Projects">
+
+    <div class="projectsScreenContainer">
+      <span class="majorProject">MAJOR PROJECTS</span>
+    </div>
+
+    <div class="minorProject">
+      <span class="minorProjecttag">MINOR PROJECTS</span>
+    </div>
+  </div>
+
+  <div class="bubbles">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
   <footer class="d-flex flex-wrap justify-content-center align-items-center py-3 my-4 border-top">
-        <div class="col-md-4 d-flex align-items-center">
-          <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-          </a>
-          <span class="mb-3 mb-md-0 text-light">Priyanshu Kumar &#x1F342</span>
-        
-        </div>
-        <h3 class="footerquote">“Drink Chai And Code.”</h3>
-        <div class="socialhadle">
-          <a href="https://github.com/priyanshu-k1"  target="_blank"><i class="fa fa-github  fa-2x text-light footerIcon" aria-hidden="true" ></i></a>
-          <a href="https://www.instagram.com/why.not.priyanshuuuu/?hl=en"  target="_blank"><i class="fa fa-instagram  fa-2x text-light footerIcon" aria-hidden="true"></i></a>
-          <a href="https://www.linkedin.com/in/priyanshu-kumar-97898424a/"  target="_blank"><i class="fa fa-linkedin-square fa-2x text-light footerIcon" aria-hidden="true"></i></a>
-          <a href="https://leetcode.com/u/priyanshu-k1/"  target="_blank"><i class="fa fa-code fa-2x text-light footerIcon" aria-hidden="true"></i></a>
-        </div>
+    <div class="col-md-4 d-flex align-items-center">
+      <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+        <svg class="bi" width="30" height="24">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+      </a>
+      <span class="mb-3 mb-md-0 text-light footerName">Priyanshu Kumar &#x1F342</span>
+
+    </div>
+    <h3 class="footerquote">“Drink Chai And Code.”</h3>
+    <div class="socialhadle">
+      <a href="https://github.com/priyanshu-k1" target="_blank"><i class="fa fa-github  fa-2x text-light footerIcon"
+          aria-hidden="true"></i></a>
+      <a href="https://www.instagram.com/why.not.priyanshuuuu/?hl=en" target="_blank"><i
+          class="fa fa-instagram  fa-2x text-light footerIcon" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/priyanshu-kumar-97898424a/" target="_blank"><i
+          class="fa fa-linkedin-square fa-2x text-light footerIcon" aria-hidden="true"></i></a>
+      <a href="https://leetcode.com/u/priyanshu-k1/" target="_blank"><i class="fa fa-code fa-2x text-light footerIcon"
+          aria-hidden="true"></i></a>
+    </div>
   </footer>
-   <script src="particles.js"></script>
-   <script>
-    particlesJS.load('particles-js', 'particles.json', function() {
-    console.log('callback - particles.js config loaded');
-  });
-</script>
-  <script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-  crossorigin="anonymous"
-></script>
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-<script>
+  <script src="particles.js"></script>
+  <script>
+    particlesJS.load('particles-js', 'particles.json', function () {
+      console.log('callback - particles.js config loaded');
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script>
     var typed = new Typed(".auto-text", {
-      strings: ['Priyanshu Kumar', 'Full Stack developer','Flutter developer','Android app developer','AI/ML Enthusiast'],
+      strings: ['Priyanshu Kumar', 'Full Stack developer', 'Flutter developer', 'Android app developer', 'AI/ML Enthusiast'],
       typeSpeed: 150,
       backSpeed: 30,
       loop: true
     })
-</script>
+  </script>
 
 </body>
+
 </html>

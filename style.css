@@ -10,7 +10,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @keyframes levitate {
     0% { transform: translateY(0); }
     50% { transform: translateY(-4px);}
@@ -46,6 +46,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: none !important;
 }
 html {
     scroll-behavior: smooth;
@@ -177,11 +178,7 @@ p{
     justify-content: center;
     align-items: center;
     position: absolute;
-
-    /* background: linear-gradient(43deg, #cbb094 0%, #dda88c 46%, #FFD29D 100%); */
-    /* background-color: #C4A484; */
-    /* background-color: #2C3E50; */
-    background: #EECDA3;  /* fallback for old browsers */
+    background: #EECDA3; 
     background: -webkit-linear-gradient(to left, #ffc081, #EECDA3);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #ffc081, #EECDA3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     width:34%;
@@ -189,8 +186,9 @@ p{
     border-radius:100% ;
     z-index: -1;
     overflow: hidden;
-
+    transition: all 0.6s ease-in-out;
 }
+
 .devPic{
    /* background-color: red; */
     display: hidden;
@@ -275,7 +273,7 @@ p{
   opacity: 1;
   transform: translateY(0);
 }
-/* .thunder-icon {
+.thunder-icon {
   animation: floatBolt 1s ease-in-out infinite;
   position: relative;
 }
@@ -284,7 +282,7 @@ p{
   0%   { transform: translateY(0);color: white; }
   90%  { transform: translateY(-6px); }
   100% { transform: translateY(0); }
-} */
+}
 .skillsCards{
     display: flex;
     flex-direction: row;
@@ -301,7 +299,13 @@ p{
     background-color: #C4A484 ;
     
 }
-
+.skillsCards:hover .skillsIcon {
+    animation: rotateIcon 0.6s ease-in-out;
+}
+@keyframes rotateIcon {
+    0% { transform: translateY(-2px) scale(0.7) rotate(0deg); }
+    100% { transform: translateY(-2px) scale(1.1) rotate(360deg); }
+}
 .iconArea{
     display: flex;
     align-items: center;
@@ -332,8 +336,12 @@ p{
 .skillsIcon{
     width: 3rem;
     height: 3rem;
+    transition: all 0.6s ease-in-out;
 }
+.footerName{
+    font-family: "Playfair Display", serif;
 
+}
 
 
 
@@ -650,16 +658,22 @@ p{
     font-optical-sizing: auto;
     transition: all 0.6s ease-in;
 }
-
+ 
 
 .footerIcon{
     margin-right:0.5rem;
     transition: all 0.3s ease-in;
 }
 .footerIcon:hover{
-    transform: scale(1.1);
-    color: #114a95;
+    color: #EECDA3!important;
+    /* transform: scale(1.1);
+    transform: translateY(-5px); */
+    animation: rotate 0.6s ease-in-out;
     /* filter: drop-shadow(5px 0px 10px  #5384ed); */
+}
+@keyframes rotate {
+    0% { transform: translateY(-5px) scale(1.1) rotate(0deg); }
+    100% { transform: translateY(-5px) scale(1.1) rotate(360deg); }
 }
 /* Finger Pointer CSS */
 .finger-pointer {
@@ -727,6 +741,7 @@ p{
         height: 35%;
         aspect-ratio: 1/1;
         border-radius:100%;
+        transition: all 0.6s ease-in-out;
     }
   
 
@@ -1480,3 +1495,28 @@ p{
     transform: scale(0.98);
   }
 }
+
+/* Custom Cursor Styles */
+.cursor-dot, .cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+}
+
+.cursor-outline {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #e18e3b;
+  transition: transform 0.15s ease-in-out;
+}
+
