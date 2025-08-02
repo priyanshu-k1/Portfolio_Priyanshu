@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', makeElementClickable);
 document.addEventListener("DOMContentLoaded", function () {
     const downloadButton = document.getElementById("downloadResume");
     const projectButtons = document.querySelectorAll(".projectButton"); 
-    const container = document.querySelector(".conatiner");
     const minorProjectContainer = document.querySelector(".minorProject");
     const skillsContainer = document.querySelector(".skillsContainer");
 
@@ -50,42 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     } else {
         console.error("Download button not found!");
-    }
-
-    if (container) {
-        const items = [...container.children];
-        items.forEach((item) => {
-            let clone = item.cloneNode(true);
-            container.appendChild(clone); 
-        });
-
-        function autoScroll() {
-            if (!scrolling) return; 
-
-            container.scrollLeft += scrollAmount;
-            if (container.scrollLeft >= container.scrollWidth / 2) {
-                container.scrollLeft = 0;
-            }
-        }
-
-        interval = setInterval(autoScroll, 13);
-        container.addEventListener("mouseenter", () => {
-            scrolling = false;
-            clearInterval(interval);
-        });
-        container.addEventListener("mouseleave", () => {
-            scrolling = true;
-            interval = setInterval(autoScroll, 20);
-        });
-
-        container.addEventListener("touchstart", () => {
-            scrolling = false;
-            clearInterval(interval);
-        });
-        container.addEventListener("touchend", () => {
-            scrolling = true;
-            interval = setInterval(autoScroll, 20);
-        });
     }
     // Intersection Observer for active link highlighting
     const sections = document.querySelectorAll("div[id]");
@@ -346,6 +309,191 @@ document.addEventListener("DOMContentLoaded", function () {
       } 
     setTimeout(lightUP, 300); 
   }
+function truncateText(text, maxLength) {
+        if (text.length <= maxLength) return text;
+        return text.substring(0, maxLength) + '...';
+}
+function renderProjects(projects) {
+    const container = document.querySelector('.projectsScreenContainer');
+    if (!container) {
+        console.warn('projectsScreenContainer element not found.');
+        return;
+    }
+    
+    const majorProjectSpan = container.querySelector('.majorProject');
+    container.innerHTML = '';
+    if (majorProjectSpan) {
+        container.appendChild(majorProjectSpan);
+    }
+    
+    projects.forEach((project, index) => {
+        const truncatedDesc = truncateText(project.description, 50);
+        const card = document.createElement('div');
+        card.className = 'cardBody';
+        card.innerHTML = `
+            <div class="cardimage">
+                <img src="${project.image}" alt="${project.alt}">
+                <span class="covercaption projectName">${project.name}</span>
+                <div class="projectOverlay">
+                    <h3>${project.name}</h3>
+                    <p>${truncatedDesc}</p>
+                    <span>Tech Stack: ${truncateText(project.techStack, 30)}</span>
+                    <button class="openModalBtn" data-project-index="${index}">Know more</button>
+                </div>
+            </div>
+        `;
+        
+        container.appendChild(card);
+    });
+    
+    // Add event listeners to all "Know more" buttons
+    addModalEventListeners(projects);
+}
+// Function to add event listeners for modal functionality
+function addModalEventListeners(projects) {
+    const openModalBtns = document.querySelectorAll('.openModalBtn');
+    const modal = document.querySelector('.detailViewModal');
+    const closeModalBtn = document.querySelector('.closeModal');
+    openModalBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const projectIndex = parseInt(btn.getAttribute('data-project-index'));
+            const project = projects[projectIndex];
+            openModal(project);
+        });
+    });
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeModal);
+    }
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    }
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            closeModal();
+        }
+    });
+}
+
+// Function to open modal and populate with project data
+function openModal(project) {
+    const modal = document.querySelector('.detailViewModal');
+    const projectLogoImg = document.querySelector('.projectLogoImg');
+    const modalProjectTitle = document.querySelector('.modalProjectTitle');
+    const modalProjectDesc = document.querySelector('.modalProjectDesc');
+    const techStackList = document.querySelector('.techStackList');
+    const modalFooter = document.querySelector('.modalFooter button');
+    
+    if (!modal) {
+        console.warn('Modal element not found.');
+        return;
+    }
+    if (projectLogoImg) {
+        projectLogoImg.src = project.image;
+        projectLogoImg.alt = project.alt;
+    }
+    if (modalProjectTitle) {
+      modalProjectTitle.textContent = project.name;
+      
+    }
+    if (modalProjectDesc) {
+        const description = project.modalcontent?.content || project.description;
+        modalProjectDesc.textContent = description;
+    }
+    if (techStackList) {
+        techStackList.innerHTML = ''; 
+        let techStackArray;
+        if (project.modalcontent?.techStack && Array.isArray(project.modalcontent.techStack)) {
+            techStackArray = project.modalcontent.techStack;
+        } else if (project.techStack) {
+            techStackArray = project.techStack.split(',').map(tech => tech.trim());
+        } else {
+            techStackArray = [];
+        }
+        techStackArray.forEach(tech => {
+            const li = document.createElement('li');
+            li.className = 'techStackItem';
+            li.textContent = tech;
+            techStackList.appendChild(li);
+        });
+    }
+    // Set GitHub link
+    if (modalFooter && project.link) {
+        modalFooter.onclick = () => {
+            window.open(project.link, '_blank');
+        };
+    }
+    
+    // Show modal
+    modal.style.display = 'block';
+    addTechStackAutoScroll();
+    
+    // Add smooth transition
+    setTimeout(() => {
+        modal.style.opacity = '1';
+        modal.style.transform = 'scale(1)';
+    }, 10);
+}
+
+// Function to close modal
+function closeModal() {
+    const modal = document.querySelector('.detailViewModal');
+    if (modal) {
+        modal.style.opacity = '0';
+        modal.style.transform = 'scale(0.8)';
+        
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
+}
+// Auto-scroll functionality for tech stack
+function addTechStackAutoScroll() {
+   const techStackList = document.querySelector('.techStackList');
+   if (!techStackList) return;
+
+   let scrollInterval;
+   const scrollSpeed = 2;
+   const hoverZoneWidth = 50; // Width of hover zones in pixels
+
+   techStackList.addEventListener('mousemove', (e) => {
+       const rect = techStackList.getBoundingClientRect();
+       const mouseX = e.clientX - rect.left;
+       const containerWidth = rect.width;
+
+       // Clear any existing interval
+       clearInterval(scrollInterval);
+
+       // Left hover zone
+       if (mouseX <= hoverZoneWidth) {
+           scrollInterval = setInterval(() => {
+               techStackList.scrollLeft -= scrollSpeed;
+               if (techStackList.scrollLeft <= 0) {
+                   clearInterval(scrollInterval);
+               }
+           }, 16);
+       }
+       // Right hover zone
+       else if (mouseX >= containerWidth - hoverZoneWidth) {
+           scrollInterval = setInterval(() => {
+               const maxScroll = techStackList.scrollWidth - techStackList.clientWidth;
+               techStackList.scrollLeft += scrollSpeed;
+               if (techStackList.scrollLeft >= maxScroll) {
+                   clearInterval(scrollInterval);
+               }
+           }, 16);
+       }
+   });
+
+   // Stop scrolling when mouse leaves the container
+   techStackList.addEventListener('mouseleave', () => {
+       clearInterval(scrollInterval);
+   });
+}
 document.addEventListener('DOMContentLoaded', function() {
     // Fetch the projects data
     fetch('project.json')
@@ -360,46 +508,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 container.innerHTML = '<p>Unable to load projects. Please check back later.</p>';
             }
         });
-
-    function renderProjects(projects) {
-        const container = document.querySelector('.projectsScreenContainer');
-        if (!container) {
-            console.warn('projectsScreenContainer element not found.');
-            return;
-        }
-
-        const majorProjectSpan = container.querySelector('.majorProject');
-        container.innerHTML = '';
-        if (majorProjectSpan) {
-            container.appendChild(majorProjectSpan);
-        }
-
-        projects.forEach(project => {
-            const truncatedDesc = truncateText(project.description, 50);
-            const card = document.createElement('div');
-            card.className = 'cardBody';
-            card.innerHTML = `
-                <div class="cardimage">
-                    <img src="${project.image}" alt="${project.alt}">
-                    <span class="covercaption projectName">${project.name}</span>
-                    <div class="projectOverlay">
-                        <h3>${project.name}</h3>
-                        <p>${truncatedDesc}</p>
-                        <span>Tech Stack: ${truncateText(project.techStack, 30)}</span>
-                        <a href="${project.link}" target="_blank">Know more</a>
-                    </div>
-                </div>
-            `;
-            
-            container.appendChild(card);
-        });
-    }
-
-   
-    function truncateText(text, maxLength) {
-        if (text.length <= maxLength) return text;
-        return text.substring(0, maxLength) + '...';
-    }
 });
 
 

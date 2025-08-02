@@ -6,7 +6,12 @@
         "alt": "AI-powered resume screening system interface",
         "description": "An AI-powered system that automatically screens resumes based on job requirements, enhancing recruitment efficiency and accuracy.",
         "techStack": "Python, Flask, HTML, CSS, JavaScript, Machine Learning, NLP",
-        "link": "https://github.com/priyanshu-k1/AutoScreen-AI"
+        "link": "https://github.com/priyanshu-k1/AutoScreen-AI",
+         "modalcontent":{
+          "icon":"fa-light fa-microchip-ai",
+          "content": "Automates resume screening using AI and NLP, reducing bias and time, and providing accurate job-candidate matching via skill-based ML models.",
+          "techStack": ["Python","Flask","scikit-learn","NLP","TF-IDF","Cosine Similarity","HTML","CSS","JavaScript","PDF/DOC Parsing"]
+       }
     },
     {
       "name": "Farm Connect",
@@ -14,7 +19,12 @@
       "alt": "Farmers bending and greeting",
       "description": "A platform to help farmers with crop information and purchases.",
       "techStack": "HTML, CSS, JavaScript, Bootstrap",
-      "link": "https://github.com/priyanshu-k1/FarmConnect"
+      "link": "https://github.com/priyanshu-k1/FarmConnect",
+      "modalcontent": {
+        "content": "A multilingual crop education and e-commerce platform that empowers farmers with region-specific crop knowledge and allows them to purchase essential farming products in their preferred language.",
+        "techStack": ["HTML", "CSS", "JavaScript", "Bootstrap", "Node.js", "Express.js", "MySQL", "JWT", "REST API"]
+      }
+
     },
     {
       "name": "Budget Buddy",
@@ -22,7 +32,12 @@
       "alt": "Expense tracking app interface",
       "description": "A mobile application to track expenses with intuitive visualization.",
       "techStack": "Flutter, Dart",
-      "link": "https://github.com/priyanshu-k1/Budget-Buddy"
+      "link": "https://github.com/priyanshu-k1/Budget-Buddy",
+      "modalcontent": {
+        
+        "content": "A cross-platform expense tracker app that helps users monitor daily spending, categorize expenses, and maintain financial discipline through intuitive charts and summaries.",
+        "techStack": ["Dart", "Flutter"]
+      }
     },
     {
       "name": "Breeze",
@@ -30,7 +45,11 @@
       "alt": "Weather app interface",
       "description": "An Android application for getting weather updates with beautiful UI.",
       "techStack": "Kotlin, Openweathermap Api",
-      "link": "https://github.com/priyanshu-k1/Breeze-android-app-"
+      "link": "https://github.com/priyanshu-k1/Breeze-android-app-",
+      "modalcontent": {
+        "content": "A clean and minimal weather app that delivers real-time weather updates, temperature, humidity, and forecasts using the OpenWeatherMap API with a Kotlin-based Android interface.",
+        "techStack": ["Kotlin", "Android", "OpenWeatherMap API", "XML", "Retrofit", "MVVM"]
+      }
     }
   ],
   "minorProjects": [
