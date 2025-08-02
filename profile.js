@@ -211,33 +211,55 @@ document.addEventListener("DOMContentLoaded", () => {
   if (title) observer.observe(title);
 
   const dot = document.querySelector('.cursor-dot');
-const outline = document.querySelector('.cursor-outline');
+  const outline = document.querySelector('.cursor-outline');
 
-let dotX = 0, dotY = 0;
-let outlineX = 0, outlineY = 0;
+  let dotX = 0, dotY = 0;
+  let outlineX = 0, outlineY = 0;
 
-window.addEventListener('mousemove', e => {
-  dotX = e.clientX;
-  dotY = e.clientY;
-});
+  window.addEventListener('mousemove', e => {
+    dotX = e.clientX;
+    dotY = e.clientY;
+  });
+  function isMobileDevice() {
+    return window.innerWidth <= 768;
+  }
 
-function animate() {
-  // Dot follows instantly
-  dot.style.left = dotX + 'px';
-  dot.style.top = dotY + 'px';
+  function isTabletDevice() {
+    return window.innerWidth > 768 && window.innerWidth <= 1024;
+  }
 
-  // Outline follows with delay
-  outlineX += (dotX - outlineX) * 0.15;
-  outlineY += (dotY - outlineY) * 0.15;
-  outline.style.left = outlineX + 'px';
-  outline.style.top = outlineY + 'px';
+  function isSmallScreen() {
+    return window.innerWidth <= 1024;
+  }
 
-  requestAnimationFrame(animate);
-}
+  function animate() {
+    if (isMobileDevice() || isTabletDevice() || isSmallScreen()) {
+      dot.style.display = 'none';
+      outline.style.display = 'none';
+      const style = document.createElement('style');
+      style.innerHTML = `* { cursor: default !important; }`;
+      document.head.appendChild(style);
+      return; // Skip animation on mobile or tablet
+    } else {
+      dot.style.display = 'block';
+      outline.style.display = 'block';
+    }
+    // Dot follows instantly
+    dot.style.left = dotX + 'px';
+    dot.style.top = dotY + 'px';
 
-animate();
+    // Outline follows with delay
+    outlineX += (dotX - outlineX) * 0.15;
+    outlineY += (dotY - outlineY) * 0.15;
+    outline.style.left = outlineX + 'px';
+    outline.style.top = outlineY + 'px';
 
-});
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  });
 
 
 
@@ -267,7 +289,7 @@ document.addEventListener("DOMContentLoaded", function () {
             devPic2.style.transform = "scale(0.8)";
             devPic.style.display="block";
             devPic.style.marginTop = "1.3rem"; 
-            devPic.style.transform = "scale(1.3)";
+            devPic.style.transform = "scale(1.2)";
             // shadow.style.transition = "all 0.6s ease-in-out";
             // shadow.style.background = "linear-gradient(135deg, #1f1c2c, #928dab)";
 
