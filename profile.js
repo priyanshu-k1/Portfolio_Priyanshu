@@ -387,6 +387,7 @@ function openModal(project) {
     const modalProjectDesc = document.querySelector('.modalProjectDesc');
     const techStackList = document.querySelector('.techStackList');
     const modalFooter = document.querySelector('.modalFooter button');
+    const modalBackdrop =document.querySelector('.modalBackdrop');
     
     if (!modal) {
         console.warn('Modal element not found.');
@@ -430,24 +431,38 @@ function openModal(project) {
     
     // Show modal
     modal.style.display = 'block';
+    if(modalBackdrop){
+      modalBackdrop.style.display = 'block';
+    }
     addTechStackAutoScroll();
     
     // Add smooth transition
     setTimeout(() => {
         modal.style.opacity = '1';
         modal.style.transform = 'scale(1)';
+        modalBackdrop.style.opacity = '1';
+        modalBackdrop.style.transform = 'scale(1)';
     }, 10);
 }
 
 // Function to close modal
 function closeModal() {
     const modal = document.querySelector('.detailViewModal');
+    const modalBackdrop =document.querySelector('.modalBackdrop');
     if (modal) {
         modal.style.opacity = '0';
         modal.style.transform = 'scale(0.8)';
         
         setTimeout(() => {
             modal.style.display = 'none';
+        }, 300);
+    }
+    if(modalBackdrop){
+      modalBackdrop.style.opacity = '0';
+        modalBackdrop.style.transform = 'scale(0.8)';
+        
+        setTimeout(() => {
+            modalBackdrop.style.display = 'none';
         }, 300);
     }
 }
