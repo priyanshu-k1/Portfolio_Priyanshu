@@ -451,48 +451,50 @@ function closeModal() {
         }, 300);
     }
 }
-// Auto-scroll functionality for tech stack
+// Enhanced auto-scroll with visual hover zones
 function addTechStackAutoScroll() {
-   const techStackList = document.querySelector('.techStackList');
-   if (!techStackList) return;
+    const techStackList = document.querySelector('.techStackList');
+    if (!techStackList) return;
 
-   let scrollInterval;
-   const scrollSpeed = 2;
-   const hoverZoneWidth = 50; // Width of hover zones in pixels
+    let scrollInterval;
+    const scrollSpeed = 2;
+    const hoverZoneWidth = 50;
 
-   techStackList.addEventListener('mousemove', (e) => {
-       const rect = techStackList.getBoundingClientRect();
-       const mouseX = e.clientX - rect.left;
-       const containerWidth = rect.width;
+    techStackList.addEventListener('mousemove', (e) => {
+        const rect = techStackList.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const containerWidth = rect.width;
 
-       // Clear any existing interval
-       clearInterval(scrollInterval);
+        // Clear any existing interval and classes
+        clearInterval(scrollInterval);
+        techStackList.classList.remove('hover-left', 'hover-right');
 
-       // Left hover zone
-       if (mouseX <= hoverZoneWidth) {
-           scrollInterval = setInterval(() => {
-               techStackList.scrollLeft -= scrollSpeed;
-               if (techStackList.scrollLeft <= 0) {
-                   clearInterval(scrollInterval);
-               }
-           }, 16);
-       }
-       // Right hover zone
-       else if (mouseX >= containerWidth - hoverZoneWidth) {
-           scrollInterval = setInterval(() => {
-               const maxScroll = techStackList.scrollWidth - techStackList.clientWidth;
-               techStackList.scrollLeft += scrollSpeed;
-               if (techStackList.scrollLeft >= maxScroll) {
-                   clearInterval(scrollInterval);
-               }
-           }, 16);
-       }
-   });
-
-   // Stop scrolling when mouse leaves the container
-   techStackList.addEventListener('mouseleave', () => {
-       clearInterval(scrollInterval);
-   });
+        // Left hover zone
+        if (mouseX <= hoverZoneWidth) {
+            techStackList.classList.add('hover-left');
+            scrollInterval = setInterval(() => {
+                techStackList.scrollLeft -= scrollSpeed;
+                if (techStackList.scrollLeft <= 0) {
+                    clearInterval(scrollInterval);
+                }
+            }, 16);
+        }
+        // Right hover zone
+        else if (mouseX >= containerWidth - hoverZoneWidth) {
+            techStackList.classList.add('hover-right');
+            scrollInterval = setInterval(() => {
+                const maxScroll = techStackList.scrollWidth - techStackList.clientWidth;
+                techStackList.scrollLeft += scrollSpeed;
+                if (techStackList.scrollLeft >= maxScroll) {
+                    clearInterval(scrollInterval);
+                }
+            }, 16);
+        }
+    });
+    techStackList.addEventListener('mouseleave', () => {
+        clearInterval(scrollInterval);
+        techStackList.classList.remove('hover-left', 'hover-right');
+    });
 }
 document.addEventListener('DOMContentLoaded', function() {
     // Fetch the projects data
