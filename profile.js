@@ -1,3 +1,9 @@
+// Global Variables to config the page
+ let ismodalBackdroprender=false
+ const devDescriptionFallBack="I'm a developer who excels at turning complex challenges into smooth, well-crafted solutions. I focus on creating products that not only work seamlessly but also feel great to use—engaging, efficient, and user-friendly.";
+      
+
+
 function letsChat(){
     window.open("https://t.me/Priyanshuk_01",'_blank'); 
 }
@@ -24,6 +30,20 @@ function makeElementClickable() {
     });
   }
 }
+
+// this function is used to config the page and make it dynamic...
+document.addEventListener("DOMContentLoaded",function(){
+  const introText=document.querySelector(".introText");
+  if(introText){
+    fetch('project.json')
+      .then(response => response.json())
+      .then(data=>{
+        introText.innerHTML=data.pageConfig.devDescription||devDescriptionFallBack;
+        ismodalBackdroprender=data.pageConfig.modalOverLay||false;
+        console.log(modalBackdroprender)
+      })
+  }
+})
 
 
 document.addEventListener('DOMContentLoaded', makeElementClickable);
@@ -243,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ripple.style.left = `${e.clientX}px`;
     ripple.style.top = `${e.clientY}px`;
     document.body.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 600); // remove after animation
+    setTimeout(() => ripple.remove(), 600);
     });
 
     if (devPic && devPic2) { 
@@ -332,7 +352,7 @@ function renderProjects(projects) {
         card.className = 'cardBody';
         card.innerHTML = `
             <div class="cardimage">
-                <img src="${project.image}" alt="${project.alt}">
+                <img loading="lazy" src="${project.image}" alt="${project.alt}">
                 <span class="covercaption projectName">${project.name}</span>
                 <div class="projectOverlay">
                     <h3>${project.name}</h3>
@@ -431,8 +451,9 @@ function openModal(project) {
     
     // Show modal
     modal.style.display = 'block';
-    if(modalBackdrop){
+    if(modalBackdrop && ismodalBackdroprender){
       modalBackdrop.style.display = 'block';
+      document.body.style.overflow = 'hidden';
     }
     addTechStackAutoScroll();
     
@@ -465,6 +486,7 @@ function closeModal() {
             modalBackdrop.style.display = 'none';
         }, 300);
     }
+    document.body.style.overflowY = 'scroll'
 }
 // Enhanced auto-scroll with visual hover zones
 function addTechStackAutoScroll() {

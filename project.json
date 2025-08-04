@@ -1,4 +1,9 @@
 {
+  "pageConfig":{
+      "devDescription":"I'm a developer who excels at turning complex challenges into smooth, well-crafted solutions. I focus on creating products that not only work seamlessly but also feel great to use—engaging, efficient, and user-friendly.",
+      "modalOverLay":false,
+      "devpic":[]
+  },
   "projects": [
     {
         "name": "AutoScreen-AI",
@@ -10,7 +15,7 @@
          "modalcontent":{
           "icon":"fa-light fa-microchip-ai",
           "content": "Automates resume screening using AI and NLP, reducing bias and time, and providing accurate job-candidate matching via skill-based ML models.",
-          "techStack": ["Python","Flask","scikit-learn","NLP","TF-IDF","Cosine Similarity","HTML","CSS","JavaScript","PDF/DOC Parsing"]
+          "techStack": ["Python","Flask","scikit-learn","NLP","TF-IDF","HTML","CSS","JavaScript"]
        }
     },
     {
