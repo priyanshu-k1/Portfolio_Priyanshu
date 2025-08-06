@@ -302,33 +302,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-  let arrayOfID=['text1', 'text2', 'text3', 'text4', 'text5', 'text6'];
-  var count=0;
-  var forward=true
-  
-  function lightUP() {
-      if(forward==true){
-          var element=document.getElementById(arrayOfID[count]);
-          element.style.color= "white";
-          element.style.filter='drop-shadow(5px 0px 10px  #6554AF)';
-          count++;
-          if(count==6){
-              forward=false
-          }
-          
-      }
-      else{
-          var element=document.getElementById(arrayOfID[count-1]);
-          element.style.color= "#212529";
-          element.style.filter='drop-shadow(0px 0px 0px  #09101a)';
-          count--;
-          if(count==0){
-              forward=true
-          }
-  
-      } 
-    setTimeout(lightUP, 300); 
-  }
 function truncateText(text, maxLength) {
         if (text.length <= maxLength) return text;
         return text.substring(0, maxLength) + '...';
@@ -418,8 +391,10 @@ function openModal(project) {
         projectLogoImg.alt = project.alt;
     }
     if (modalProjectTitle) {
-      modalProjectTitle.textContent = project.name;
-      
+        modalProjectTitle.textContent = project.name;
+        const icon=document.createElement('i');
+        icon.className=project.modalcontent?.icon||'fa fa-check'
+        modalProjectTitle.appendChild(icon)    
     }
     if (modalProjectDesc) {
         const description = project.modalcontent?.content || project.description;
