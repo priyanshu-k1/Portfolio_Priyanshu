@@ -30,22 +30,33 @@ function makeElementClickable() {
     });
   }
 }
-
+function selectRandomPic(arr) {
+  size=arr.length;
+  return arr[Math.floor(Math.random() * size)];
+}
 // this function is used to config the page and make it dynamic...
 document.addEventListener("DOMContentLoaded",function(){
   const introText=document.querySelector(".introText");
-  if(introText){
-    fetch('project.json')
+  const devPic2=document.querySelector(".devPic2");
+  fetch('project.json')
       .then(response => response.json())
       .then(data=>{
-        introText.innerHTML=data.pageConfig.devDescription||devDescriptionFallBack;
-        ismodalBackdroprender=data.pageConfig.modalOverLay||false;
-        console.log(modalBackdroprender)
+         if(introText){
+          introText.innerHTML=data.pageConfig.devDescription||devDescriptionFallBack;
+          ismodalBackdroprender=data.pageConfig.modalOverLay||false;
+        }
+        if(devPic2){
+          const image="res/"+`${selectRandomPic(data.pageConfig.devpic)}`
+          if(image!=='res/avatar.png'){
+            devPic2.className="smallerImage";
+          }
+          devPic2.src=image||'res/avatar.png';
+          // devPic2.style.opacity = "1";
+        }
       })
-  }
+
+ 
 })
-
-
 document.addEventListener('DOMContentLoaded', makeElementClickable);
 
 document.addEventListener("DOMContentLoaded", function () {

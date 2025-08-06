@@ -208,11 +208,17 @@ p{
     width: 51%;
     height: 27rem;
     object-fit:fill;
-    z-index: 2; /* Higher z-index so it's initially above */
+    z-index: 2;
     transition: all 0.9s ease-in-out; 
 }
+.smallerImage{
+    width:76%;
+    height:30rem;
+    object-fit:fill;
+    z-index: 2; 
+    transition: all 0.9s ease-in-out; 
 
-
+}
 
 /* tech Screen */
 .technologiesScreen{

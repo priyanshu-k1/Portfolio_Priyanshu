@@ -2,7 +2,7 @@
   "pageConfig":{
       "devDescription":"I'm a developer who excels at turning complex challenges into smooth, well-crafted solutions. I focus on creating products that not only work seamlessly but also feel great to use—engaging, efficient, and user-friendly.",
       "modalOverLay":false,
-      "devpic":[]
+      "devpic":["avatar.png","avatar-2.png"]
   },
   "projects": [
     {
