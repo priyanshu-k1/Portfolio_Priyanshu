@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         else{
             image="res/avatar.png";
-          } 
+          }
         devPic2.src = image;
       }
     });
