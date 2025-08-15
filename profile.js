@@ -345,7 +345,7 @@ function renderProjects(projects) {
             <div class="cardimage">
                 <img loading="lazy" src="${project.image}" alt="${project.alt}">
                 <div class="underDevelopmentTag">
-                    <span class="material-symbols-outlined">build</span>
+                    <span class="outerSpan"><span class="material-symbols-outlined">build</span></span>
                     <span class="text">Connecting Soon...</span>
                 </div>
             </div>`;

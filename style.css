@@ -874,9 +874,15 @@ p{
 
 } 
 
-.underDevelopmentTag span.material-symbols-outlined {
+.outerSpan{
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.7s ease-in-out;
+}
+.material-symbols-outlined{
+    animation: wrench-action 2s ease-in-out infinite;
 }
 
 .underDevelopmentTag .text {
@@ -890,13 +896,35 @@ p{
     width: 13rem;
     padding-right: 1rem;
 }
-.cardBody:hover .underDevelopmentTag>span.material-symbols-outlined {
+.cardBody:hover .outerSpan{
    transform: translateX(-5.3rem);
+   
 }
 .cardBody:hover .underDevelopmentTag>.text{
     opacity: 1;
     transform: translateX(0.7rem);
 }
+@keyframes wrench-action {
+    0% {
+        transform: rotate(0deg) translateX(0) scale(1);
+    }
+    20% {
+        transform: rotate(-18deg) translateX(-2px) scale(1.05);
+    }
+    40% {
+        transform: rotate(18deg) translateX(2px) scale(1);
+    }
+    60% {
+        transform: rotate(-12deg) translateX(-1px) scale(1.03);
+    }
+    80% {
+        transform: rotate(8deg) translateX(1px) scale(1);
+    }
+    100% {
+        transform: rotate(0deg) translateX(0) scale(1);
+    }
+}
+
 
 /* .cardBody:nth-child(1) .cardimage::after {
     animation-delay: 0s; 
