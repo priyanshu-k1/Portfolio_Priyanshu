@@ -341,14 +341,15 @@ function renderProjects(projects) {
     const card = document.createElement("div");
     card.className = "cardBody";
     if(project.isUnderDevelopment){
-       card.innerHTML = `
+      card.innerHTML = `
             <div class="cardimage">
                 <img loading="lazy" src="${project.image}" alt="${project.alt}">
                 <div class="underDevelopmentTag">
                     <span class="outerSpan"><span class="material-symbols-outlined">build</span></span>
-                    <span class="text">Connecting Soon...</span>
+                    <span class="text">${truncateText(project.progressTag,16)||"Underdevelopment"}</span>
                 </div>
             </div>`;
+        
     }
     else{
       card.innerHTML = `

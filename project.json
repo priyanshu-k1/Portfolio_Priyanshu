@@ -43,7 +43,6 @@
       "link": "https://github.com/priyanshu-k1/Budget-Buddy",
       "isUnderDevelopment": false,
       "modalcontent": {
-        
         "content": "A cross-platform expense tracker app that helps users monitor daily spending, categorize expenses, and maintain financial discipline through intuitive charts and summaries.",
         "techStack": ["Dart", "Flutter"]
       }
@@ -69,6 +68,7 @@
   "techStack": "Node.js, Express, MongoDB Atlas,React, Socket.IO, , AES-256-GCM",
   "link":null,
   "isUnderDevelopment": true,
+  "progressTag":"Connecting Soon...",
   "modalcontent": {
     "content": "Eclipse Chat is a minimalist, privacy-focused messenger. It uses AES-256-GCM for encryption, real-time delivery via Socket.IO, JWT-based auth, and MongoDB Atlas (Mongoose) for temporary storage with TTL. Features include read-once messages, mutual-consent saving, zero ads, and zero tracking.",
     "techStack": ["React","Node.js","Express","MongoDB Atlas","Socket.IO","AES-256-GCM"]
