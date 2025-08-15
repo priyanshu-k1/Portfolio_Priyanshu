@@ -64,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 document.addEventListener("DOMContentLoaded", makeElementClickable);
-
 document.addEventListener("DOMContentLoaded", function () {
   const downloadButton = document.getElementById("downloadResume");
   const projectButtons = document.querySelectorAll(".projectButton");
@@ -142,13 +141,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize on load
   initializeActiveSection();
-
-  // Optional: Add scroll listener for more responsive updates
   let scrollTimeout;
   window.addEventListener("scroll", () => {
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(() => {
-      // This will help catch any sections the observer might miss
       const currentSection = [...sections].find((section) => {
         const rect = section.getBoundingClientRect();
         return (
@@ -163,7 +159,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 100);
   });
   // Fetch and display minor projects
-  // Ensure minorProjectContainer exists before fetching
   if (minorProjectContainer) {
     fetch("project.json")
       .then((response) => response.json())
@@ -345,25 +340,33 @@ function renderProjects(projects) {
     const truncatedDesc = truncateText(project.description, 50);
     const card = document.createElement("div");
     card.className = "cardBody";
-    card.innerHTML = `
+    if(project.isUnderDevelopment){
+       card.innerHTML = `
+            <div class="cardimage">
+                <img loading="lazy" src="${project.image}" alt="${project.alt}">
+                <div class="underDevelopmentTag"><span class="material-symbols-outlined">build</span>Connecting Soon...</div>
+                <div class="projectOverlay">
+                    <h3>${project.name}</h3>
+                    <p>${truncatedDesc}</p>
+                    <span>Tech Stack: ${truncateText(project.techStack,30)}</span>
+                </div>
+            </div>`;
+    }
+    else{
+      card.innerHTML = `
             <div class="cardimage">
                 <img loading="lazy" src="${project.image}" alt="${project.alt}">
                 <span class="covercaption projectName">${project.name}</span>
                 <div class="projectOverlay">
                     <h3>${project.name}</h3>
                     <p>${truncatedDesc}</p>
-                    <span>Tech Stack: ${truncateText(
-                      project.techStack,
-                      30
-                    )}</span>
+                    <span>Tech Stack: ${truncateText(project.techStack,30)}</span>
                     <button class="openModalBtn" data-project-index="${index}">Know more</button>
                 </div>
-            </div>
-        `;
-
+            </div>`;
+    }
     container.appendChild(card);
   });
-
   // Add event listeners to all "Know more" buttons
   addModalEventListeners(projects);
 }
@@ -450,6 +453,9 @@ function openModal(project) {
     modalFooter.onclick = () => {
       window.open(project.link, "_blank");
     };
+  }
+  else{
+    modalFooter.style.display="none";
   }
 
   // Show modal
