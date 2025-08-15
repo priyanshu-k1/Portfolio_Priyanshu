@@ -345,7 +345,7 @@ function renderProjects(projects) {
             <div class="cardimage">
                 <img loading="lazy" src="${project.image}" alt="${project.alt}">
                 <div class="underDevelopmentTag">
-                    <span class="outerSpan"><span class="material-symbols-outlined">build</span></span>
+                    <span class="outerSpan"><span class="material-symbols-outlined wrenchIcon">build</span></span>
                     <span class="text">${truncateText(project.progressTag,16)||"Underdevelopment"}</span>
                 </div>
             </div>`;
