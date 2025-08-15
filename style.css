@@ -783,9 +783,9 @@ p{
     opacity: 1;
     transform: translateY(0);
 }
-.cardBody:hover .underDevelopmentTag {
+/* .cardBody:hover .underDevelopmentTag {
      opacity: 0;
-}
+} */
 .cardBody {
     position: relative;
     height: 200px;
@@ -849,8 +849,9 @@ p{
   }
 /* under developement card*/
 .underDevelopmentTag{
-    font-family: "Orbitron", sans-serif;
     position: absolute;
+    top: 0.7rem; 
+    left: 0.7rem;
     z-index:10;
     padding: 0.5rem;
     background: #00000059;
@@ -862,16 +863,40 @@ p{
     justify-content: center;
     flex-direction: row;
     gap:0.5rem;
-    width: fit-content;
+    width: 2.5rem;
+    height: 2.5em;
     overflow: hidden;
-    margin-top:-9rem;
-    margin-right:8rem;
+    transition: all 0.7s ease-in-out;
+    transform-origin: left center;
     box-shadow: rgba(238, 205, 163, 0.25) 0px 1px 2px 0px,
             rgba(238, 205, 163, 0.35) 0px 2px 6px 2px;
-    transition: all 1 ease-in-out;
+    
 
 } 
-    
+
+.underDevelopmentTag span.material-symbols-outlined {
+    position: absolute;
+    transition: all 0.7s ease-in-out;
+}
+
+.underDevelopmentTag .text {
+    font-family: "Orbitron", sans-serif;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(10rem);
+    transition: all 0.7s ease-in-out;
+}
+.cardBody:hover .underDevelopmentTag{
+    width: 13rem;
+    padding-right: 1rem;
+}
+.cardBody:hover .underDevelopmentTag>span.material-symbols-outlined {
+   transform: translateX(-5.3rem);
+}
+.cardBody:hover .underDevelopmentTag>.text{
+    opacity: 1;
+    transform: translateX(0.7rem);
+}
 
 /* .cardBody:nth-child(1) .cardimage::after {
     animation-delay: 0s; 

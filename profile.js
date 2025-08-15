@@ -344,11 +344,9 @@ function renderProjects(projects) {
        card.innerHTML = `
             <div class="cardimage">
                 <img loading="lazy" src="${project.image}" alt="${project.alt}">
-                <div class="underDevelopmentTag"><span class="material-symbols-outlined">build</span>Connecting Soon...</div>
-                <div class="projectOverlay">
-                    <h3>${project.name}</h3>
-                    <p>${truncatedDesc}</p>
-                    <span>Tech Stack: ${truncateText(project.techStack,30)}</span>
+                <div class="underDevelopmentTag">
+                    <span class="material-symbols-outlined">build</span>
+                    <span class="text">Connecting Soon...</span>
                 </div>
             </div>`;
     }
