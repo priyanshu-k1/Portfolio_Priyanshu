@@ -922,16 +922,16 @@ p{
     transition: all 0.7s ease-in-out;
 }
 .cardBody:hover .underDevelopmentTag{
-    width: 13rem;
+    width: 13.5rem;
     padding-right: 1rem;
 }
 .cardBody:hover .outerSpan{
-   transform: translateX(-5.3rem);
+   transform: translateX(-5.1rem);
    
 }
 .cardBody:hover .underDevelopmentTag>.text{
     opacity: 1;
-    transform: translateX(0.7rem);
+    transform: translateX(1rem);
 }
 @keyframes wrench-action {
     0% {
@@ -2005,9 +2005,15 @@ p{
         font-size: 1.3rem;
         left: 15px;
         bottom: 10px;
-        right: 80px; /* Prevent overlap with button */
-        z-index: 10; /* Ensure title is above other elements */
+        right: 80px; 
+        z-index: 10; 
     }
+    .modalProjectTitleLogoOuterDiv {
+        bottom: 0.7rem;
+        left: 1rem;
+    }
+    
+
     
     .modalBody {
         padding: 15px;
@@ -2076,11 +2082,14 @@ p{
     }
     
     .modalProjectTitle {
-        font-size: 1.1rem;
-        left: 12px;
-        bottom: 8px;
-        right: 70px;
-        line-height: 1.2;
+        font-size: 1.3rem;
+        bottom:0.8rem;
+        left: 3.5rem;
+        z-index: 10; 
+    }
+    .modalProjectTitleLogoOuterDiv {
+        bottom: 0.7rem;
+        left: 1rem;
     }
     
     .modalBody {
