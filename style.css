@@ -919,17 +919,18 @@ p{
     white-space: nowrap;
     opacity: 0;
     transform: translateX(10rem);
-    transition: all 0.7s ease-in-out;
+    transition: opacity 0.3s ease-in-out 0.1s, transform 0.7s ease-in-out 0.1s;
 }
-.cardBody:hover .underDevelopmentTag{
+.cardBody:hover .underDevelopmentTag {
     width: 13.5rem;
     padding-right: 1rem;
 }
-.cardBody:hover .outerSpan{
-   transform: translateX(-5.1rem);
-   
+
+.cardBody:hover .outerSpan {
+    transform: translateX(-5.1rem);
 }
-.cardBody:hover .underDevelopmentTag>.text{
+
+.cardBody:hover .underDevelopmentTag > .text {
     opacity: 1;
     transform: translateX(1rem);
 }
@@ -2080,7 +2081,6 @@ p{
     .projectLogo {
         height: 6rem;
     }
-    
     .modalProjectTitle {
         font-size: 1.3rem;
         bottom:0.8rem;
