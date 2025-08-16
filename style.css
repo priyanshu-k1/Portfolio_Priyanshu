@@ -1260,22 +1260,13 @@ p{
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-direction: column-reverse;
-    }
-    .footerquote{
-       display: none;
+        flex-direction: column;
     }
     .footerIcon{
         font-size: 2rem;
         margin-left: 1rem;
     }
 }
-
-
-
-
-
-
 /* OPTION 1: Floating bubble near the developer image */
 .idea-bubble-v1 {
     position: absolute;
@@ -2019,6 +2010,24 @@ p{
     
     .modalFooter button i {
         font-size: 1.3rem;
+    }
+    .mobile-center {
+        text-align: center !important;
+        justify-content: center !important;
+    }
+    
+    .footerName {
+        font-size: 1rem;
+        margin-right:-5rem ;
+    }
+    
+    .footerquote {
+        font-size: 1rem;
+        margin: 0.75rem 0;
+    }
+    
+    .footerIcon {
+        margin: 0 0.3rem;
     }
 }
 
