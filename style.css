@@ -895,12 +895,11 @@ p{
     width: 2.5rem;
     height: 2.5em;
     overflow: hidden;
+    will-change: transform;
     transition: all 0.7s ease-in-out;
     transform-origin: left center;
     box-shadow: rgba(238, 205, 163, 0.25) 0px 1px 2px 0px,
             rgba(238, 205, 163, 0.35) 0px 2px 6px 2px;
-    
-
 } 
 
 .outerSpan{
@@ -908,6 +907,7 @@ p{
     display: flex;
     align-items: center;
     justify-content: center;
+    will-change: transform;
     transition: all 0.7s ease-in-out;
 }
 .wrenchIcon{
@@ -918,6 +918,7 @@ p{
     font-family: "Orbitron", sans-serif;
     white-space: nowrap;
     opacity: 0;
+    will-change: transform, opacity;
     transform: translateX(10rem);
     transition: opacity 0.3s ease-in-out 0.1s, transform 0.7s ease-in-out 0.1s;
 }
