@@ -408,6 +408,7 @@ function openModal(project) {
   const techStackList = document.querySelector(".techStackList");
   const modalFooter = document.querySelector(".modalFooter button");
   const modalBackdrop = document.querySelector(".modalBackdrop");
+  const modalProjectTitleLogo = document.querySelector(".modalProjectTitleLogo");
 
   if (!modal) {
     console.warn("Modal element not found.");
@@ -419,9 +420,9 @@ function openModal(project) {
   }
   if (modalProjectTitle) {
     modalProjectTitle.textContent = project.name;
-    const icon = document.createElement("i");
-    icon.className = project.modalcontent?.icon || "fa fa-check";
-    modalProjectTitle.appendChild(icon);
+  }
+  if(modalProjectTitleLogo){
+    modalProjectTitleLogo.innerHTML = `${project.logo || "done_all"}`;
   }
   if (modalProjectDesc) {
     const description = project.modalcontent?.content || project.description;

@@ -12,6 +12,7 @@
         "alt": "AI-powered resume screening system interface",
         "description": "An AI-powered system that automatically screens resumes based on job requirements, enhancing recruitment efficiency and accuracy.",
         "techStack": "Python, Flask, HTML, CSS, JavaScript, Machine Learning, NLP",
+        "logo":"network_intel_node",
         "link": "https://github.com/priyanshu-k1/AutoScreen-AI",
         "isUnderDevelopment": false,
          "modalcontent":{
@@ -26,6 +27,7 @@
       "alt": "Farmers bending and greeting",
       "description": "A platform to help farmers with crop information and purchases.",
       "techStack": "HTML, CSS, JavaScript, Bootstrap",
+      "logo":"agriculture",
       "link": "https://github.com/priyanshu-k1/FarmConnect",
       "isUnderDevelopment": false,
       "modalcontent": {
@@ -40,6 +42,7 @@
       "alt": "Expense tracking app interface",
       "description": "A mobile application to track expenses with intuitive visualization.",
       "techStack": "Flutter, Dart",
+      "logo":"savings",
       "link": "https://github.com/priyanshu-k1/Budget-Buddy",
       "isUnderDevelopment": false,
       "modalcontent": {
@@ -53,6 +56,7 @@
       "alt": "Weather app interface",
       "description": "An Android application for getting weather updates with beautiful UI.",
       "techStack": "Kotlin, Openweathermap Api",
+      "logo":"weather_hail",
       "link": "https://github.com/priyanshu-k1/Breeze-android-app-",
       "isUnderDevelopment": false,
       "modalcontent": {
@@ -66,6 +70,7 @@
   "alt": "Privacy-first real-time chat app UI",
   "description": "A sleek, privacy-first real-time chat app with an eclipse-inspired UI, end-to-end encryption, ephemeral messages, and a fully responsive design.",
   "techStack": "Node.js, Express, MongoDB Atlas,React, Socket.IO, , AES-256-GCM",
+  "logo":"communication",
   "link":null,
   "isUnderDevelopment": true,
   "progressTag":"Connecting Soon...",
