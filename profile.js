@@ -360,7 +360,7 @@ function renderProjects(projects) {
                     <h3>${project.name}</h3>
                     <p>${truncatedDesc}</p>
                     <span>Tech Stack: ${truncateText(project.techStack,30)}</span>
-                    <button class="openModalBtn" data-project-index="${index}">Know more</button>
+                    <button class="openModalBtn" data-project-index="${index}">Know more <span class="material-symbols-outlined">more_up</span></button>
                 </div>
             </div>`;
     }
