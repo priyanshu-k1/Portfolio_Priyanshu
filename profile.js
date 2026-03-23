@@ -286,13 +286,16 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => ripple.remove(), 600);
   });
 
+
+
+  
   if (devPic && devPic2) {
     devPic2.addEventListener("mouseenter", function () {
       devPic2.style.opacity = "0";
       devPic2.style.transform = "scale(0.8)";
       devPic.style.display = "block";
       devPic.style.marginTop = "1.3rem";
-      devPic.style.transform = "scale(1.2)";
+      devPic.style.transform = "scale(1.1)";
       // shadow.style.transition = "all 0.6s ease-in-out";
       // shadow.style.background = "linear-gradient(135deg, #1f1c2c, #928dab)";
     });
@@ -360,13 +363,12 @@ function renderProjects(projects) {
                     <h3>${project.name}</h3>
                     <p>${truncatedDesc}</p>
                     <span>Tech Stack: ${truncateText(project.techStack,30)}</span>
-                    <button class="openModalBtn" data-project-index="${index}">Know more <span class="material-symbols-outlined">more_up</span></button>
+                    <button class="openModalBtn" data-project-index="${index}">Know more</button>
                 </div>
             </div>`;
     }
     container.appendChild(card);
   });
-  // Add event listeners to all "Know more" buttons
   addModalEventListeners(projects);
 }
 // Function to add event listeners for modal functionality
@@ -399,7 +401,7 @@ function addModalEventListeners(projects) {
   });
 }
 
-// Function to open modal and populate with project data
+
 function openModal(project) {
   const modal = document.querySelector(".detailViewModal");
   const projectLogoImg = document.querySelector(".projectLogoImg");
