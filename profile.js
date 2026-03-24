@@ -346,7 +346,7 @@ function renderProjects(projects) {
     if(project.isUnderDevelopment){
       card.innerHTML = `
             <div class="cardimage">
-                <img loading="lazy" src="${project.image}" alt="${project.alt}">
+                <img fetchpriority="high" src="${project.image}" alt="${project.alt}">
                 <div class="underDevelopmentTag">
                     <span class="outerSpan"><span class="material-symbols-outlined wrenchIcon">build</span></span>
                     <span class="text">${truncateText(project.progressTag,16)||"Underdevelopment"}</span>

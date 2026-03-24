@@ -1683,8 +1683,8 @@ p{
 }
 
 @keyframes sparkle {
-    0%, 100% { transform: scale(1) rotate(0deg); }
-    50% { transform: scale(1.2) rotate(180deg); }
+    0%, 100% { transform: scale(1) ; }
+    50% { transform: scale(1.15) ; }
 }
 /* Mobile Responsive */
 @media (max-width: 768px) {
